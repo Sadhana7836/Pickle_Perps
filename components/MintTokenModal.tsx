@@ -87,6 +87,24 @@ export function MintTokenModal({ isOpen, onClose, onSuccess }: MintTokenModalPro
         onSuccess?.()
         onClose()
       }, 2000)
+    } catch (error: unknown) {
+      console.error("[MintTokenModal] Error at step:", step, error)
+      setStep("form")
+      let errorMessage = "Failed to create token"
+      if (error instanceof Error) {
+        errorMessage = error.message
+        // Make common errors more user-friendly
+        if (errorMessage.includes('Account not found')) {
+          errorMessage = 'Your Stellar testnet account is not funded. Visit friendbot.stellar.org to get free testnet XLM.'
+        } else if (errorMessage.includes('rejected') || errorMessage.includes('denied') || errorMessage.includes('cancel')) {
+          errorMessage = 'Transaction was cancelled in wallet.'
+        } else if (errorMessage.includes('IPFS not configured')) {
+          errorMessage = 'Image upload service is not configured. Please set NEXT_PUBLIC_PINATA_JWT.'
+        } else if (errorMessage.includes('Upload failed')) {
+          errorMessage = 'Failed to upload image. Please try again.'
+        }
+      }
+      alert(errorMessage)
     }
   }
 
