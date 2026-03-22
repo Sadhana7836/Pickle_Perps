@@ -7,7 +7,8 @@ export type ThemeId =
   | 'amber-dusk'
   | 'violet-storm'
   | 'solar-flare'
-  | 'neon-matrix';
+  | 'neon-matrix'
+  | 'frost-arctic';
 
 export interface Theme {
   id: ThemeId;
@@ -231,6 +232,30 @@ export const themes: Theme[] = [
       '--input-bg': '#050d06',
       '--sidebar-bg': '#020a0310',
       '--navbar-bg': '#020a03',
+    },
+  },
+  {
+    // Icy blue-white — cold, clean, arctic feel
+    id: 'frost-arctic',
+    name: 'Frost Arctic',
+    preview: '#7dd3fc',
+    vars: {
+      '--background': '#070b12',
+      '--foreground': '#e4f0f8',
+      '--card-bg': '#0e1822',
+      '--card-border': '#1a2a3a',
+      '--accent-primary': '#7dd3fc',
+      '--accent-green': '#34d399',
+      '--card-green': '#10b981',
+      '--accent-red': '#fb7185',
+      '--accent-yellow': '#fde68a',
+      '--text-muted': '#6b8da8',
+      '--text-secondary': '#90b4cc',
+      '--hover-bg': '#132030',
+      '--border-color': '#1e3348',
+      '--input-bg': '#0a131c',
+      '--sidebar-bg': '#070b1210',
+      '--navbar-bg': '#070b12',
     },
   },
 ];
