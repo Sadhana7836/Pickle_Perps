@@ -1,0 +1,35 @@
+name: pikeperps-indexer
+description: PikePerps Indexer for Mantle Sepolia
+
+networks:
+  - id: 5003
+    hypersync_config:
+      url: https://mantle-sepolia.hypersync.xyz
+    start_block: 31000000
+    contracts:
+      - name: MemeTokenFactoryV2
+        address: "0xEc3F6C841945bEfE45656c9292817939a227e9ad"
+        handler: src/EventHandlers.ts
+        events:
+          - event: TokenCreated(address indexed tokenAddress, address indexed creator, string name, string symbol, uint256 totalSupply, string imageHash, uint256 creatorAllocationBps, uint256 timestamp)
+          - event: MintingFeeUpdated(uint256 oldFee, uint256 newFee)
+          - event: BondingCurveMarketUpdated(address indexed oldMarket, address indexed newMarket)
+
+      - name: BondingCurveMarket
+        address: "0x93b268325A9862645c82b32229f3B52264750Ca2"
+        handler: src/EventHandlers.ts
+        events:
+          - event: CurveInitialized(address indexed token, address indexed creator, uint256 creatorAllocationBps, uint256 curveSupply, uint256 initialPrice)
+          - event: TokenBought(address indexed token, address indexed buyer, uint256 ethIn, uint256 tokensOut, uint256 newPrice, uint256 fee)
+          - event: TokenSold(address indexed token, address indexed seller, uint256 tokensIn, uint256 ethOut, uint256 newPrice, uint256 fee)
+          - event: FeesWithdrawn(address indexed recipient, uint256 amount)
+          - event: TradingFeeUpdated(uint256 oldFee, uint256 newFee)
+
+      - name: PerpetualTrading
+        address: "0x8081b646f349c049f2d5e8a400057d411dd657bd"
+        handler: src/EventHandlers.ts
+        events:
+          - event: PositionOpened(uint256 indexed positionId, address indexed user, address indexed token, bool isLong, uint256 size, uint256 margin, uint256 leverage, uint256 entryPrice)
+          - event: PositionClosed(uint256 indexed positionId, address indexed user, uint256 pnl, uint256 exitPrice)
+          - event: PositionLiquidated(uint256 indexed positionId, address indexed user, uint256 liquidationPrice)
+          - event: PriceUpdated(address indexed token, uint256 price)

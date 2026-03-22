@@ -1,0 +1,129 @@
+# Token entity - represents meme tokens created via factory
+type Token @entity {
+  id: ID! # token address
+  address: String! @index
+  creator: String! @index
+  name: String!
+  symbol: String!
+  totalSupply: BigInt!
+  imageHash: String!
+  creatorAllocationBps: BigInt!
+  createdAt: BigInt!
+  createdAtBlock: BigInt!
+
+  # Bonding curve data
+  curveSupply: BigInt
+  initialPrice: BigInt
+  currentPrice: BigInt
+  soldFromCurve: BigInt
+  reserveBalance: BigInt
+  isActive: Boolean!
+
+  # Aggregated stats
+  totalVolume: BigInt!
+  totalTrades: BigInt!
+  totalBuys: BigInt!
+  totalSells: BigInt!
+
+  # Relations
+  trades: [Trade!]! @derivedFrom(field: "token")
+  positions: [Position!]! @derivedFrom(field: "token")
+  priceHistory: [PriceCandle!]! @derivedFrom(field: "token")
+}
+
+# Trade entity - buy/sell on bonding curve
+type Trade @entity {
+  id: ID! # txHash-logIndex
+  token: Token!
+  trader: String! @index
+  isBuy: Boolean!
+  ethAmount: BigInt!
+  tokenAmount: BigInt!
+  price: BigInt!
+  fee: BigInt!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  txHash: String! @index
+}
+
+# Perpetual position entity
+type Position @entity {
+  id: ID! # positionId
+  positionId: BigInt! @index
+  user: String! @index
+  token: Token!
+  isLong: Boolean!
+  size: BigInt!
+  margin: BigInt!
+  leverage: BigInt!
+  entryPrice: BigInt!
+  exitPrice: BigInt
+  pnl: BigInt
+  isOpen: Boolean!
+  openedAt: BigInt!
+  closedAt: BigInt
+  liquidatedAt: BigInt
+  liquidationPrice: BigInt
+  txHash: String!
+}
+
+# User entity - aggregates user stats
+type User @entity {
+  id: ID! # user address
+  address: String! @index
+
+  # Token creation stats
+  tokensCreated: BigInt!
+
+  # Trading stats
+  totalTrades: BigInt!
+  totalBuys: BigInt!
+  totalSells: BigInt!
+  totalVolumeTraded: BigInt!
+
+  # Perpetual stats
+  totalPositions: BigInt!
+  openPositions: BigInt!
+  totalPnl: BigInt!
+  winCount: BigInt!
+  lossCount: BigInt!
+  liquidationCount: BigInt!
+
+  firstTradeAt: BigInt
+  lastTradeAt: BigInt
+}
+
+# Price candle for charting (hourly)
+type PriceCandle @entity {
+  id: ID! # token-timestamp (hourly bucket)
+  token: Token!
+  timestamp: BigInt! @index
+  openPrice: BigInt!
+  high: BigInt!
+  low: BigInt!
+  closePrice: BigInt!
+  volume: BigInt!
+  trades: BigInt!
+}
+
+# Protocol-wide statistics
+type Protocol @entity {
+  id: ID! # "protocol"
+  totalTokensCreated: BigInt!
+  totalTrades: BigInt!
+  totalVolume: BigInt!
+  totalFees: BigInt!
+  totalPositions: BigInt!
+  totalLiquidations: BigInt!
+  uniqueUsers: BigInt!
+  lastUpdated: BigInt!
+}
+
+# Fee withdrawal events
+type FeeWithdrawal @entity {
+  id: ID! # txHash-logIndex
+  recipient: String! @index
+  amount: BigInt!
+  timestamp: BigInt!
+  txHash: String!
+}

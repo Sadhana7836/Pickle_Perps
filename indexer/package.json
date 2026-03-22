@@ -1,0 +1,21 @@
+{
+  "name": "pickleperps-indexer",
+  "version": "1.0.0",
+  "description": "Envio indexer for PicklePerps on Mantle Sepolia",
+  "scripts": {
+    "codegen": "envio codegen",
+    "dev": "envio dev",
+    "start": "envio start",
+    "stop": "envio stop",
+    "local": "envio local",
+    "local:docker:up": "envio local docker up",
+    "local:docker:down": "envio local docker down"
+  },
+  "dependencies": {
+    "envio": "2.32.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}

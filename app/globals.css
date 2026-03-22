@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0e0f12;
+  --foreground: #e2e4ea;
+  --card-bg: #191b22;
+  --card-border: #252830;
+  --accent-primary: #818cf8;
+  --accent-green: #34d399;
+  --card-green: #10b981;
+  --accent-red: #fb7185;
+  --accent-yellow: #fcd34d;
+  --text-muted: #7e8494;
+  --text-secondary: #9aa0b0;
+  --hover-bg: #20222c;
+  --border-color: #2e3140;
+  --input-bg: #16181f;
+  --sidebar-bg: #0e0f1210;
+  --navbar-bg: #0e0f12;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Rainbow gradient animation for token images */
+@keyframes gradient-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-slow {
+  background: linear-gradient(
+    135deg,
+    #ff0080,
+    #ff8c00,
+    #40e0d0,
+    #D4521F,
+    #00bfff,
+    #8b5cf6,
+    #ff0080
+  );
+  background-size: 400% 400%;
+  animation: gradient-rotate 3s ease infinite;
+}
