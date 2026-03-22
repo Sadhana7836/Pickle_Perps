@@ -115,7 +115,7 @@ We are seeking seed funding to conduct professional security audits of our smart
 
 ## Links
 
-- Website: https://pickle-perps.vercel.app
+- Website: https://pickle-perps-lilac.vercel.app
 - GitHub: https://github.com/Sadhana7836/picklePerps
 - Subgraph API: https://api.goldsky.com/api/public/project_cmj709d6q6eqo01w6advl8q19/subgraphs/pickleperps/2.1.0/gn
 

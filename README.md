@@ -109,7 +109,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Open https://pickle-perps.vercel.app
+Open https://pickle-perps-lilac.vercel.app
 
 ## Tech Stack
 
@@ -164,7 +164,7 @@ bash deploy.sh
 
 ## Links
 
-- **Web App**: https://pickle-perps.vercel.app
+- **Web App**: https://pickle-perps-lilac.vercel.app
 - **GitHub**: https://github.com/Sadhana7836/picklePerps
 - **Feedback Form**: https://docs.google.com/forms/d/e/1FAIpQLSeNZcu_mW7E3GTQF9nSORIMpUHx1KgjYbg2IHzLG_nIdhNUmg/viewform?usp=header
 - **Feedback Sheet**: https://forms.gle/KydeC7XXN9GxhCf87
@@ -180,22 +180,38 @@ bash deploy.sh
 | F3 | Souvik Banerjee | Spacing and font sizes inconsistent across pages | Done |
 | F4 | Ritwick Srimany | No loading indicator during token creation | Done |
 | F5 | Rahul Gupta | Token list has no sorting or filtering | In Progress |
-| F6 | Tania Ghosh | Navigation menu is flat, hard to find things | In Progress |
+| F6 | Debopriya Roy | No breadcrumb navigation in deep sections | Noted |
+| F7 | Neha Verma | No contract explanation UI, hard to understand | Noted |
+| F8 | Sneha Kapoor | No onboarding flow, had to explore manually | Noted |
+| F9 | Piyali Mukherjee | Limited theme customization options | Noted |
+| F10 | Ankit Jain | Leaderboard not updating in real-time | Noted |
+| F11 | Tania Ghosh | Sidebar still flat, too many options at same level | In Progress |
+| F12 | Rohit Agarwal | Chart updates lag sometimes (polling delay) | Noted |
+| F13 | Abhishek Mehta | No way to check transaction timing or latency | Noted |
+| F14 | Kunal Shah | RWA prices feel delayed or not synced | Noted |
+| F15 | Sourav Das | Failed transactions don't give proper error info | Noted |
+| F16 | Siddhish Banerjee | Managing multiple tokens feels tedious | Noted |
+| F17 | Anirban Paul | UI freezes briefly after actions | Noted |
+| F18 | Megha Jain | Fee breakdown not shown before trades | Noted |
+| F19 | Sounak Dey | Initial load time is slightly slow | Noted |
+| F20 | Riya Sen | Hard to understand proportional copy trade logic | Noted |
+| F21 | Aman Verma | Still feels like MVP, rough edges | Noted |
 
 ### Fixes Applied
 
 | Commit | Feedback | Fix Description |
 |--------|----------|-----------------|
-| `37ccfbd` | F1 | Filtered out empty/zero-balance tokens from token list |
+| `f2b74b1` | F1 | Filtered out empty/zero-balance tokens from token list |
 | `8f93b4c` | F2 | Fixed false error message during token creation |
 | `3ece09f` | F3 | Added UI themes, standardized styling across pages |
-| `b3f1773` | F3 | Fixed minor UI inconsistencies and deployment issues |
+| `518af3d` | F3, F4 | Added UI themes, minor UI inconsistencies and loading states fixed |
 
 ### Upcoming Fixes
 
 | Feedback | Fix Description |
 |----------|-----------------|
-| F4 | General bug fixes including loading states |
+| F5 | Add sorting and filtering to token list |
+| F11 | Restructure sidebar with grouped sections |
 
 ### Feedback Response Sheet
 
