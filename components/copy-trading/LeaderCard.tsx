@@ -45,7 +45,7 @@ export const LeaderCard = memo(function LeaderCard({
           {/* Address */}
           <div>
             <div className="flex items-center gap-2">
-              <p className="text-sm font-medium text-white">
+              <p className="text-sm font-medium text-[var(--foreground)]">
                 {leader.address.slice(0, 6)}...{leader.address.slice(-4)}
               </p>
               {leader.isRegisteredLeader && (
@@ -91,7 +91,7 @@ export const LeaderCard = memo(function LeaderCard({
 
           {/* Address & Status */}
           <div>
-            <p className="text-sm font-medium text-white">
+            <p className="text-sm font-medium text-[var(--foreground)]">
               {leader.address.slice(0, 6)}...{leader.address.slice(-4)}
             </p>
             <div className="flex items-center gap-2 mt-0.5">
@@ -110,7 +110,7 @@ export const LeaderCard = memo(function LeaderCard({
         {/* Total Trades Badge */}
         <div className="text-right">
           <span className="text-xs text-gray-400">Total Trades</span>
-          <p className="text-sm font-medium text-white">{totalTrades.toLocaleString()}</p>
+          <p className="text-sm font-medium text-[var(--foreground)]">{totalTrades.toLocaleString()}</p>
         </div>
       </div>
 
@@ -144,7 +144,7 @@ export const LeaderCard = memo(function LeaderCard({
             <Activity className="w-3 h-3" />
             <span>Volume</span>
           </div>
-          <p className="text-sm font-medium text-white">
+          <p className="text-sm font-medium text-[var(--foreground)]">
             {volume.toFixed(2)} XLM
           </p>
         </div>
@@ -155,7 +155,7 @@ export const LeaderCard = memo(function LeaderCard({
             <Users className="w-3 h-3" />
             <span>{leader.isRegisteredLeader ? "Followers" : "Positions"}</span>
           </div>
-          <p className="text-sm font-medium text-white">
+          <p className="text-sm font-medium text-[var(--foreground)]">
             {leader.isRegisteredLeader
               ? Number(leader.totalFollowers).toLocaleString()
               : Number(leader.openPositions).toLocaleString()
@@ -183,7 +183,7 @@ export const LeaderCard = memo(function LeaderCard({
               isSubscribed
                 ? "bg-[var(--card-bg)] text-gray-400 border border-[#333]"
                 : leader.isActive
-                ? "bg-green-600 hover:bg-green-700 text-white"
+                ? "bg-green-600 hover:bg-green-700 text-[var(--foreground)]"
                 : "bg-[var(--card-bg)] text-gray-500 cursor-not-allowed"
             }`}
           >

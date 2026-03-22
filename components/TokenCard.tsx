@@ -105,8 +105,8 @@ export const TokenCard = memo(function TokenCard({ token, showRank: _showRank = 
         <div className="flex-1 min-w-0 space-y-1.5">
           {/* Row 1: Name, Symbol, Icons */}
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-white text-sm font-semibold truncate max-w-[100px]">{token.name}</span>
-            <span className="text-[#555] text-xs truncate max-w-[80px]">{token.symbol}</span>
+            <span className="text-[var(--foreground)] text-sm font-semibold truncate max-w-[100px]">{token.name}</span>
+            <span className="text-[var(--text-muted)] text-xs truncate max-w-[80px]">{token.symbol}</span>
             <button
               type="button"
               onClick={(e) => {
@@ -131,7 +131,7 @@ export const TokenCard = memo(function TokenCard({ token, showRank: _showRank = 
                 className="flex-shrink-0 p-0.5 hover:bg-[var(--card-bg)] rounded cursor-pointer"
                 title="Website"
               >
-                <Globe className="w-3 h-3 text-[#555] hover:text-[#00bfff] transition-colors" />
+                <Globe className="w-3 h-3 text-[var(--text-muted)] hover:text-[#00bfff] transition-colors" />
               </button>
             )}
             {token.twitterUrl && (
@@ -150,7 +150,7 @@ export const TokenCard = memo(function TokenCard({ token, showRank: _showRank = 
               >
                 <svg
                   viewBox="0 0 24 24"
-                  className="w-3 h-3 text-[#555] hover:text-white transition-colors"
+                  className="w-3 h-3 text-[var(--text-muted)] hover:text-[var(--foreground)] transition-colors"
                   fill="currentColor"
                 >
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -171,7 +171,7 @@ export const TokenCard = memo(function TokenCard({ token, showRank: _showRank = 
                 className="flex-shrink-0 p-0.5 hover:bg-[var(--card-bg)] rounded cursor-pointer"
                 title="Telegram"
               >
-                <Send className="w-3 h-3 text-[#555] hover:text-[#0088cc] transition-colors" />
+                <Send className="w-3 h-3 text-[var(--text-muted)] hover:text-[#0088cc] transition-colors" />
               </button>
             )}
             {token.isListed && (
@@ -188,7 +188,7 @@ export const TokenCard = memo(function TokenCard({ token, showRank: _showRank = 
             </span>
 
             {/* Social/Holder Icons */}
-            <div className="flex items-center gap-1.5 text-[#555]">
+            <div className="flex items-center gap-1.5 text-[var(--text-muted)]">
               {token.holders !== undefined && (
                 <span className="flex items-center gap-0.5">
                   <Users className="w-3 h-3" />
@@ -202,26 +202,26 @@ export const TokenCard = memo(function TokenCard({ token, showRank: _showRank = 
             </div>
 
             {/* Quote Stats */}
-            <span className="text-[#555]">⊙ {token.comments || 0}/{token.quotes || 126}</span>
+            <span className="text-[var(--text-muted)]">⊙ {token.comments || 0}/{token.quotes || 126}</span>
 
             {/* F Value */}
             {token.fundingValue && (
-              <span className="text-[#555]">
+              <span className="text-[var(--text-muted)]">
                 <span className="text-[#666]">F</span> {token.fundingValue}
               </span>
             )}
 
             {/* Net Change */}
             {token.netChange && (
-              <span className={token.netChange.includes('+') ? 'text-[var(--card-green)]' : token.netChange.includes('-') ? 'text-[var(--accent-red)]' : 'text-[#555]'}>
+              <span className={token.netChange.includes('+') ? 'text-[var(--card-green)]' : token.netChange.includes('-') ? 'text-[var(--accent-red)]' : 'text-[var(--text-muted)]'}>
                 N{token.netChange}
               </span>
             )}
 
             {/* TX Count */}
             {token.transactions !== undefined && (
-              <span className="text-[#555]">
-                TX<span className="text-white ml-0.5">{token.transactions}</span>
+              <span className="text-[var(--text-muted)]">
+                TX<span className="text-[var(--foreground)] ml-0.5">{token.transactions}</span>
               </span>
             )}
 
@@ -251,11 +251,11 @@ export const TokenCard = memo(function TokenCard({ token, showRank: _showRank = 
         {/* Right Side - Price & MC */}
         <div className="text-right flex-shrink-0 space-y-1">
           <div className="flex items-center gap-1 justify-end">
-            <span className="text-[#555] text-xs">V</span>
-            <span className="text-white text-sm font-medium">{token.price}</span>
+            <span className="text-[var(--text-muted)] text-xs">V</span>
+            <span className="text-[var(--foreground)] text-sm font-medium">{token.price}</span>
           </div>
           <div className="flex items-center gap-1 justify-end">
-            <span className="text-[#555] text-xs">MC</span>
+            <span className="text-[var(--text-muted)] text-xs">MC</span>
             <span className="text-[var(--card-green)] text-sm font-medium">{token.marketCap}</span>
           </div>
         </div>

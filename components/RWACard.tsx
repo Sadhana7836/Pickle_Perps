@@ -43,8 +43,8 @@ export const RWACard = memo(function RWACard({ asset, onClick }: RWACardProps) {
         <div className="flex-1 min-w-0 space-y-1.5">
           {/* Row 1: Name, Symbol */}
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-white text-sm font-semibold truncate max-w-[120px]">{asset.name}</span>
-            <span className="text-[#555] text-xs">{asset.symbol}</span>
+            <span className="text-[var(--foreground)] text-sm font-semibold truncate max-w-[120px]">{asset.name}</span>
+            <span className="text-[var(--text-muted)] text-xs">{asset.symbol}</span>
             <Globe className="w-3 h-3 text-[#444] hover:text-[#888] flex-shrink-0" />
           </div>
 
@@ -53,21 +53,21 @@ export const RWACard = memo(function RWACard({ asset, onClick }: RWACardProps) {
             <span className={`px-1.5 py-0.5 rounded ${category.bgColor} ${category.color} font-medium`}>
               {category.label}
             </span>
-            <span className="text-[#555]">
+            <span className="text-[var(--text-muted)]">
               via <span className="text-[#888]">Pyth</span>
             </span>
           </div>
 
           {/* Row 3: Max Leverage */}
           <div className="flex items-center gap-2 text-xs">
-            <span className="text-[#555]">Max Leverage:</span>
-            <span className="text-white">{asset.maxLeverage}x</span>
+            <span className="text-[var(--text-muted)]">Max Leverage:</span>
+            <span className="text-[var(--foreground)]">{asset.maxLeverage}x</span>
           </div>
         </div>
 
         {/* Right Side - Price & Change */}
         <div className="text-right flex-shrink-0 space-y-1">
-          <div className="text-white text-sm font-medium">${price}</div>
+          <div className="text-[var(--foreground)] text-sm font-medium">${price}</div>
           <div className={`flex items-center gap-0.5 justify-end text-sm ${isPositive ? 'text-[var(--card-green)]' : 'text-[var(--accent-red)]'}`}>
             {isPositive ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
             <span className="font-medium">{isPositive ? '+' : ''}{change24h.toFixed(2)}%</span>
@@ -91,7 +91,7 @@ export const RWACard = memo(function RWACard({ asset, onClick }: RWACardProps) {
         </span>
 
         {/* Description truncated */}
-        <span className="text-[10px] text-[#555] truncate max-w-[80px]" title={asset.description}>
+        <span className="text-[10px] text-[var(--text-muted)] truncate max-w-[80px]" title={asset.description}>
           {asset.description.split(' ').slice(0, 3).join(' ')}...
         </span>
 

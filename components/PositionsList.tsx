@@ -57,23 +57,23 @@ function PositionCard({ positionId, tokenAddress, onClose }: PositionCardProps) 
 
       <div className="space-y-1.5 text-xs">
         <div className="flex justify-between">
-          <span className="text-[#555]">Size</span>
-          <span className="text-white">${parseFloat(position.size).toFixed(2)}</span>
+          <span className="text-[var(--text-muted)]">Size</span>
+          <span className="text-[var(--foreground)]">${parseFloat(position.size).toFixed(2)}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-[#555]">Margin</span>
-          <span className="text-white">${parseFloat(position.margin).toFixed(4)}</span>
+          <span className="text-[var(--text-muted)]">Margin</span>
+          <span className="text-[var(--foreground)]">${parseFloat(position.margin).toFixed(4)}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-[#555]">Entry Price</span>
-          <span className="text-white">${(parseFloat(position.entryPrice) / 1e8).toFixed(8)}</span>
+          <span className="text-[var(--text-muted)]">Entry Price</span>
+          <span className="text-[var(--foreground)]">${(parseFloat(position.entryPrice) / 1e8).toFixed(8)}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-[#555]">Liquidation Price</span>
+          <span className="text-[var(--text-muted)]">Liquidation Price</span>
           <span className="text-[var(--accent-red)]">${(parseFloat(liquidationPrice) / 1e8).toFixed(8)}</span>
         </div>
         <div className="flex justify-between border-t border-[#222] pt-1.5 mt-1.5">
-          <span className="text-[#555]">Unrealized PnL</span>
+          <span className="text-[var(--text-muted)]">Unrealized PnL</span>
           <span className={isProfit ? 'text-[var(--accent-green)]' : 'text-[var(--accent-red)]'}>
             {isProfit ? '+' : '-'}${parseFloat(pnl).toFixed(4)}
           </span>
@@ -83,7 +83,7 @@ function PositionCard({ positionId, tokenAddress, onClose }: PositionCardProps) 
       <button
         onClick={handleClose}
         disabled={isClosing}
-        className="w-full mt-3 py-2 bg-[var(--accent-red)] hover:bg-[#ff5a67] disabled:opacity-50 text-white text-xs font-bold rounded transition-colors"
+        className="w-full mt-3 py-2 bg-[var(--accent-red)] hover:bg-[#ff5a67] disabled:opacity-50 text-[var(--foreground)] text-xs font-bold rounded transition-colors"
       >
         {isClosing ? 'Closing...' : 'Close Position'}
       </button>
@@ -100,7 +100,7 @@ export function PositionsList({ positionIds, tokenAddress, onClosePosition }: Po
 
   if (openPositions.length === 0) {
     return (
-      <div className="flex items-center justify-center h-full text-[#555] text-sm py-8">
+      <div className="flex items-center justify-center h-full text-[var(--text-muted)] text-sm py-8">
         No open positions
       </div>
     );

@@ -69,7 +69,7 @@ const ChatSection = (address: string | undefined) => {
                       {new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </span>
                   </div>
-                  <p className="text-white text-xs">{msg.message}</p>
+                  <p className="text-[var(--foreground)] text-xs">{msg.message}</p>
                 </div>
               ))
             )}
@@ -87,7 +87,7 @@ const ChatSection = (address: string | undefined) => {
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Message..."
-                  className="flex-1 bg-[var(--sidebar-bg)] border border-[var(--card-bg)] rounded px-2 py-1.5 text-xs text-white placeholder-[#444] focus:outline-none focus:border-[#333]"
+                  className="flex-1 bg-[var(--sidebar-bg)] border border-[var(--card-bg)] rounded px-2 py-1.5 text-xs text-[var(--foreground)] placeholder-[#444] focus:outline-none focus:border-[#333]"
                 />
                 <button
                   onClick={handleSendMessage}

@@ -47,11 +47,11 @@ function PositionSuccessModal({
         <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--card-border)]">
           <div className="flex items-center gap-2">
             <CheckCircle className="w-5 h-5 text-[var(--accent-green)]" />
-            <span className="text-white font-medium">Position Opened</span>
+            <span className="text-[var(--foreground)] font-medium">Position Opened</span>
           </div>
           <button
             onClick={onClose}
-            className="text-[#555] hover:text-white transition-colors"
+            className="text-[var(--text-muted)] hover:text-[var(--foreground)] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -71,23 +71,23 @@ function PositionSuccessModal({
             {/* Position Details */}
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-[#555]">Size</span>
-                <span className="text-white">${positionSize.toFixed(2)}</span>
+                <span className="text-[var(--text-muted)]">Size</span>
+                <span className="text-[var(--foreground)]">${positionSize.toFixed(2)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#555]">Margin</span>
-                <span className="text-white">${margin}</span>
+                <span className="text-[var(--text-muted)]">Margin</span>
+                <span className="text-[var(--foreground)]">${margin}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#555]">Entry Price</span>
-                <span className="text-white">${entryPrice}</span>
+                <span className="text-[var(--text-muted)]">Entry Price</span>
+                <span className="text-[var(--foreground)]">${entryPrice}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#555]">Liquidation Price</span>
+                <span className="text-[var(--text-muted)]">Liquidation Price</span>
                 <span className="text-[var(--accent-red)]">${liquidationPrice}</span>
               </div>
               <div className="flex justify-between border-t border-[#222] pt-2 mt-2">
-                <span className="text-[#555]">Unrealized PnL</span>
+                <span className="text-[var(--text-muted)]">Unrealized PnL</span>
                 <span className="text-[var(--accent-green)]">+$0.0000</span>
               </div>
             </div>
@@ -104,8 +104,8 @@ function PositionSuccessModal({
               unoptimized
             />
             <div>
-              <p className="text-white text-sm font-medium">{asset.symbol}</p>
-              <p className="text-[#555] text-xs">{asset.name}</p>
+              <p className="text-[var(--foreground)] text-sm font-medium">{asset.symbol}</p>
+              <p className="text-[var(--text-muted)] text-xs">{asset.name}</p>
             </div>
             <span className="ml-auto text-[10px] px-2 py-1 rounded bg-[#ffd700]/15 text-[#ffd700]">
               RWA
@@ -236,9 +236,9 @@ export function RWATradingPanel({ asset }: RWATradingPanelProps) {
             />
           </div>
           <div>
-            <h3 className="text-white font-semibold">{asset.name} Perpetual</h3>
+            <h3 className="text-[var(--foreground)] font-semibold">{asset.name} Perpetual</h3>
             <div className="flex items-center gap-2">
-              <span className="text-[#555] text-xs">{asset.symbol}</span>
+              <span className="text-[var(--text-muted)] text-xs">{asset.symbol}</span>
               <span className={`text-[10px] px-1.5 py-0.5 rounded ${category.bgColor} ${category.color}`}>
                 {category.label}
               </span>
@@ -264,7 +264,7 @@ export function RWATradingPanel({ asset }: RWATradingPanelProps) {
           className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
             positionType === "Long"
               ? "bg-[var(--accent-green)] text-black"
-              : "text-[#555] hover:text-white"
+              : "text-[var(--text-muted)] hover:text-[var(--foreground)]"
           }`}
         >
           Long
@@ -273,8 +273,8 @@ export function RWATradingPanel({ asset }: RWATradingPanelProps) {
           onClick={() => setPositionType("Short")}
           className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
             positionType === "Short"
-              ? "bg-[var(--accent-red)] text-white"
-              : "text-[#555] hover:text-white"
+              ? "bg-[var(--accent-red)] text-[var(--foreground)]"
+              : "text-[var(--text-muted)] hover:text-[var(--foreground)]"
           }`}
         >
           Short
@@ -284,7 +284,7 @@ export function RWATradingPanel({ asset }: RWATradingPanelProps) {
       <div className="p-4 space-y-4">
         {/* Order Type */}
         <div className="flex items-center justify-between text-sm">
-          <span className="text-[#555]">Order Type</span>
+          <span className="text-[var(--text-muted)]">Order Type</span>
           <div className="flex gap-1">
             {["Market", "Limit"].map((type) => (
               <button
@@ -293,7 +293,7 @@ export function RWATradingPanel({ asset }: RWATradingPanelProps) {
                 className={`px-3 py-1 rounded text-xs ${
                   orderType === type
                     ? "bg-[var(--accent-green)] text-black"
-                    : "bg-[var(--background)] text-[#555] hover:text-white"
+                    : "bg-[var(--background)] text-[var(--text-muted)] hover:text-[var(--foreground)]"
                 }`}
               >
                 {type}
@@ -305,8 +305,8 @@ export function RWATradingPanel({ asset }: RWATradingPanelProps) {
         {/* Leverage */}
         <div>
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[#555] text-sm">Leverage</span>
-            <span className="text-white font-medium">{leverage}x</span>
+            <span className="text-[var(--text-muted)] text-sm">Leverage</span>
+            <span className="text-[var(--foreground)] font-medium">{leverage}x</span>
           </div>
           <input
             type="range"
@@ -324,7 +324,7 @@ export function RWATradingPanel({ asset }: RWATradingPanelProps) {
                 className={`flex-1 py-1 rounded text-xs transition-colors ${
                   leverage === lev
                     ? "bg-[var(--accent-green)] text-black"
-                    : "bg-[var(--background)] border border-[var(--card-border)] text-[#555] hover:border-[var(--accent-green)] hover:text-white"
+                    : "bg-[var(--background)] border border-[var(--card-border)] text-[var(--text-muted)] hover:border-[var(--accent-green)] hover:text-[var(--foreground)]"
                 }`}
               >
                 {lev}x
@@ -344,7 +344,7 @@ export function RWATradingPanel({ asset }: RWATradingPanelProps) {
               placeholder="0.01"
               step="0.001"
               min="0.001"
-              className="w-full px-3 py-2.5 bg-[var(--background)] border border-[var(--card-border)] rounded-lg text-white text-sm placeholder-[#555] focus:outline-none focus:border-[var(--accent-green)]"
+              className="w-full px-3 py-2.5 bg-[var(--background)] border border-[var(--card-border)] rounded-lg text-[var(--foreground)] text-sm placeholder-[#555] focus:outline-none focus:border-[var(--accent-green)]"
             />
             {walletBalance && (
               <button
@@ -356,7 +356,7 @@ export function RWATradingPanel({ asset }: RWATradingPanelProps) {
             )}
           </div>
           {walletBalance && (
-            <div className="text-[#555] text-xs mt-1">
+            <div className="text-[var(--text-muted)] text-xs mt-1">
               Balance: {parseFloat(walletBalance).toFixed(4)} XLM
             </div>
           )}
@@ -366,29 +366,29 @@ export function RWATradingPanel({ asset }: RWATradingPanelProps) {
         {amount && parseFloat(amount) > 0 && (
           <div className="bg-[var(--background)] rounded-lg p-3 space-y-2">
             <div className="flex justify-between text-sm">
-              <span className="text-[#555]">Position Size</span>
-              <span className="text-white font-medium">
+              <span className="text-[var(--text-muted)]">Position Size</span>
+              <span className="text-[var(--foreground)] font-medium">
                 ${positionSize.toFixed(2)} USD
               </span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-[#555]">Entry Price</span>
-              <span className="text-white">${price}</span>
+              <span className="text-[var(--text-muted)]">Entry Price</span>
+              <span className="text-[var(--foreground)]">${price}</span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-[#555]">Liquidation Price</span>
+              <span className="text-[var(--text-muted)]">Liquidation Price</span>
               <span className="text-[var(--accent-red)]">~{liquidationPercent}% from entry</span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-[#555]">Fee (0.1%)</span>
-              <span className="text-white">{(Number(amount) * 0.001).toFixed(6)} XLM</span>
+              <span className="text-[var(--text-muted)]">Fee (0.1%)</span>
+              <span className="text-[var(--foreground)]">{(Number(amount) * 0.001).toFixed(6)} XLM</span>
             </div>
           </div>
         )}
 
         {/* TP/SL Toggle */}
         <div className="flex items-center justify-between text-sm">
-          <span className="text-[#555]">Take Profit / Stop Loss</span>
+          <span className="text-[var(--text-muted)]">Take Profit / Stop Loss</span>
           <label className="flex items-center cursor-pointer">
             <div
               onClick={() => setTpSlEnabled(!tpSlEnabled)}
@@ -415,14 +415,14 @@ export function RWATradingPanel({ asset }: RWATradingPanelProps) {
                   value={takeProfit}
                   onChange={(e) => setTakeProfit(e.target.value)}
                   placeholder="Price"
-                  className="flex-1 min-w-0 px-2 py-1.5 bg-[var(--background)] border border-[var(--card-border)] rounded text-white text-xs placeholder-[#555] focus:outline-none focus:border-[var(--accent-green)]"
+                  className="flex-1 min-w-0 px-2 py-1.5 bg-[var(--background)] border border-[var(--card-border)] rounded text-[var(--foreground)] text-xs placeholder-[#555] focus:outline-none focus:border-[var(--accent-green)]"
                 />
                 <input
                   type="text"
                   value={tpGain}
                   onChange={(e) => setTpGain(e.target.value)}
                   placeholder="+$"
-                  className="w-16 px-2 py-1.5 bg-[var(--background)] border border-[var(--card-border)] rounded text-white text-xs placeholder-[#555] focus:outline-none focus:border-[var(--accent-green)]"
+                  className="w-16 px-2 py-1.5 bg-[var(--background)] border border-[var(--card-border)] rounded text-[var(--foreground)] text-xs placeholder-[#555] focus:outline-none focus:border-[var(--accent-green)]"
                 />
               </div>
             </div>
@@ -434,14 +434,14 @@ export function RWATradingPanel({ asset }: RWATradingPanelProps) {
                   value={stopLoss}
                   onChange={(e) => setStopLoss(e.target.value)}
                   placeholder="Price"
-                  className="flex-1 min-w-0 px-2 py-1.5 bg-[var(--background)] border border-[var(--card-border)] rounded text-white text-xs placeholder-[#555] focus:outline-none focus:border-[var(--accent-red)]"
+                  className="flex-1 min-w-0 px-2 py-1.5 bg-[var(--background)] border border-[var(--card-border)] rounded text-[var(--foreground)] text-xs placeholder-[#555] focus:outline-none focus:border-[var(--accent-red)]"
                 />
                 <input
                   type="text"
                   value={slLoss}
                   onChange={(e) => setSlLoss(e.target.value)}
                   placeholder="-$"
-                  className="w-16 px-2 py-1.5 bg-[var(--background)] border border-[var(--card-border)] rounded text-white text-xs placeholder-[#555] focus:outline-none focus:border-[var(--accent-red)]"
+                  className="w-16 px-2 py-1.5 bg-[var(--background)] border border-[var(--card-border)] rounded text-[var(--foreground)] text-xs placeholder-[#555] focus:outline-none focus:border-[var(--accent-red)]"
                 />
               </div>
             </div>
@@ -464,7 +464,7 @@ export function RWATradingPanel({ asset }: RWATradingPanelProps) {
           className={`w-full py-2.5 rounded-lg font-bold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 ${
             positionType === "Long"
               ? "bg-[var(--accent-green)] hover:bg-[var(--accent-green)] text-black"
-              : "bg-[var(--accent-red)] hover:bg-[#ff5a67] text-white"
+              : "bg-[var(--accent-red)] hover:bg-[#ff5a67] text-[var(--foreground)]"
           }`}
         >
           {isLoading ? (
@@ -480,20 +480,20 @@ export function RWATradingPanel({ asset }: RWATradingPanelProps) {
         {/* RWA Info */}
         <div className="pt-3 border-t border-[var(--card-border)] space-y-2">
           <div className="flex justify-between text-xs">
-            <span className="text-[#555]">Max Leverage</span>
-            <span className="text-white">{asset.maxLeverage}x</span>
+            <span className="text-[var(--text-muted)]">Max Leverage</span>
+            <span className="text-[var(--foreground)]">{asset.maxLeverage}x</span>
           </div>
           <div className="flex justify-between text-xs">
-            <span className="text-[#555]">Oracle</span>
+            <span className="text-[var(--text-muted)]">Oracle</span>
             <span className="text-[#a855f7]">Pyth Network</span>
           </div>
           <div className="flex justify-between text-xs">
-            <span className="text-[#555]">Asset Type</span>
+            <span className="text-[var(--text-muted)]">Asset Type</span>
             <span className={category.color}>{category.label}</span>
           </div>
           <div className="flex justify-between text-xs">
-            <span className="text-[#555]">Trading Fee</span>
-            <span className="text-white">0.1%</span>
+            <span className="text-[var(--text-muted)]">Trading Fee</span>
+            <span className="text-[var(--foreground)]">0.1%</span>
           </div>
         </div>
 

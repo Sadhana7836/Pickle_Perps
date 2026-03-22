@@ -33,13 +33,13 @@ export function BecomeLeaderModal({
               <Trophy className="w-5 h-5 text-green-500" />
             </div>
             <div>
-              <h2 className="text-lg font-semibold text-white">Become a Leader</h2>
+              <h2 className="text-lg font-semibold text-[var(--foreground)]">Become a Leader</h2>
               <p className="text-sm text-gray-400">Let others copy your trades</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-white transition-colors"
+            className="text-gray-400 hover:text-[var(--foreground)] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -62,7 +62,7 @@ export function BecomeLeaderModal({
                 onChange={(e) => setProfitShare(Number(e.target.value))}
                 className="flex-1 h-2 bg-[var(--card-bg)] rounded-lg appearance-none cursor-pointer accent-green-500"
               />
-              <span className="text-white font-medium w-12 text-right">
+              <span className="text-[var(--foreground)] font-medium w-12 text-right">
                 {profitShare}%
               </span>
             </div>
@@ -83,7 +83,7 @@ export function BecomeLeaderModal({
               step={0.01}
               value={minFollowAmount}
               onChange={(e) => setMinFollowAmount(e.target.value)}
-              className="w-full bg-[var(--sidebar-bg)] border border-[var(--card-bg)] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-green-500/50"
+              className="w-full bg-[var(--sidebar-bg)] border border-[var(--card-bg)] rounded-lg px-4 py-3 text-[var(--foreground)] focus:outline-none focus:border-green-500/50"
               placeholder="0.01"
             />
             <p className="text-xs text-gray-500 mt-2">
@@ -113,7 +113,7 @@ export function BecomeLeaderModal({
           <button
             onClick={handleSubmit}
             disabled={isLoading || !minFollowAmount}
-            className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+            className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-[var(--foreground)] font-medium py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
           >
             {isLoading ? (
               <>

@@ -99,16 +99,16 @@ export function LeftSidebar() {
                     <div className="bg-[var(--sidebar-bg)] border border-[var(--card-bg)] rounded-lg p-4 mt-2">
                       <div className="flex items-center gap-3 mb-3">
                         <div className="w-10 h-10 rounded-full bg-[var(--card-bg)] flex items-center justify-center">
-                          <Wallet className="w-5 h-5 text-white/50" />
+                          <Wallet className="w-5 h-5 text-[var(--foreground)]/50" />
                         </div>
                         <div>
-                          <p className="text-white text-sm font-medium">Welcome</p>
-                          <p className="text-white/50 text-xs">Connect to get started</p>
+                          <p className="text-[var(--foreground)] text-sm font-medium">Welcome</p>
+                          <p className="text-[var(--foreground)]/50 text-xs">Connect to get started</p>
                         </div>
                       </div>
                       <button
                         onClick={connect}
-                        className="w-full flex items-center justify-center gap-2 bg-[var(--card-bg)] hover:bg-[var(--hover-bg)] border border-[var(--card-border)] hover:border-[var(--accent-primary)]/50 text-white text-sm px-4 py-2.5 rounded-lg transition-all"
+                        className="w-full flex items-center justify-center gap-2 bg-[var(--card-bg)] hover:bg-[var(--hover-bg)] border border-[var(--card-border)] hover:border-[var(--accent-primary)]/50 text-[var(--foreground)] text-sm px-4 py-2.5 rounded-lg transition-all"
                       >
                         <Wallet className="w-4 h-4 text-[var(--accent-primary)]" />
                         Connect Wallet
@@ -116,7 +116,7 @@ export function LeftSidebar() {
                     </div>
                     <button
                       disabled
-                      className="w-full flex items-center justify-center gap-2 bg-[var(--background)] border border-[var(--card-bg)] text-white/50 text-sm px-4 py-3 rounded-lg cursor-not-allowed"
+                      className="w-full flex items-center justify-center gap-2 bg-[var(--background)] border border-[var(--card-bg)] text-[var(--foreground)]/50 text-sm px-4 py-3 rounded-lg cursor-not-allowed"
                     >
                       <Plus className="w-4 h-4" />
                       <span>Create Token</span>
@@ -126,7 +126,7 @@ export function LeftSidebar() {
                   <>
                     <button
                       onClick={disconnect}
-                      className="w-full flex items-center gap-3 bg-[var(--sidebar-bg)] hover:bg-[#161616] border border-[var(--card-bg)] text-white text-sm px-3 py-2.5 rounded-lg transition-colors"
+                      className="w-full flex items-center gap-3 bg-[var(--sidebar-bg)] hover:bg-[#161616] border border-[var(--card-bg)] text-[var(--foreground)] text-sm px-3 py-2.5 rounded-lg transition-colors"
                     >
                       <div className="w-8 h-8 rounded-full bg-[var(--accent-primary)] flex items-center justify-center flex-shrink-0">
                         <span className="text-sm text-black font-bold">
@@ -134,16 +134,16 @@ export function LeftSidebar() {
                         </span>
                       </div>
                       <div className="flex-1 text-left min-w-0">
-                        <p className="text-white text-xs truncate">{address ? `${address.slice(0, 6)}...${address.slice(-4)}` : ''}</p>
+                        <p className="text-[var(--foreground)] text-xs truncate">{address ? `${address.slice(0, 6)}...${address.slice(-4)}` : ''}</p>
                         {balance && (
                           <p className="text-[var(--accent-primary)] text-xs">{balance} XLM</p>
                         )}
                       </div>
-                      <ChevronDown className="w-3 h-3 text-white/50 flex-shrink-0" />
+                      <ChevronDown className="w-3 h-3 text-[var(--foreground)]/50 flex-shrink-0" />
                     </button>
                     <button
                       onClick={() => setShowMintModal(true)}
-                      className="w-full flex items-center justify-center gap-2 bg-[var(--background)] hover:bg-[var(--sidebar-bg)] border border-[var(--accent-primary)]/30 hover:border-[var(--accent-primary)]/60 text-white text-sm px-4 py-3 rounded-lg transition-all"
+                      className="w-full flex items-center justify-center gap-2 bg-[var(--background)] hover:bg-[var(--sidebar-bg)] border border-[var(--accent-primary)]/30 hover:border-[var(--accent-primary)]/60 text-[var(--foreground)] text-sm px-4 py-3 rounded-lg transition-all"
                     >
                       <Plus className="w-4 h-4 text-[var(--accent-primary)]" />
                       <span>Create Token</span>
@@ -158,15 +158,15 @@ export function LeftSidebar() {
         <span>Stats</span>
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-white/50 text-xs">Total Tokens</span>
-            <span className="text-white text-sm font-medium">{data.tokenCount}</span>
+            <span className="text-[var(--foreground)]/50 text-xs">Total Tokens</span>
+            <span className="text-[var(--foreground)] text-sm font-medium">{data.tokenCount}</span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-white/50 text-xs">Your Tokens</span>
-            <span className="text-white text-sm font-medium">{data.myTokens.length}</span>
+            <span className="text-[var(--foreground)]/50 text-xs">Your Tokens</span>
+            <span className="text-[var(--foreground)] text-sm font-medium">{data.myTokens.length}</span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-white/50 text-xs">Mint Fee</span>
+            <span className="text-[var(--foreground)]/50 text-xs">Mint Fee</span>
             <span className="text-[var(--accent-primary)] text-sm font-medium">{data.mintingFee} XLM</span>
           </div>
         </div>
@@ -195,7 +195,7 @@ export function LeftSidebar() {
 
         {/* Footer */}
         <div className="px-3 pt-2 pb-1 border-t border-[var(--card-bg)] mt-auto mb-4">
-          <div className="flex items-center justify-center my-2 text-white/50 text-sm">
+          <div className="flex items-center justify-center my-2 text-[var(--foreground)]/50 text-sm">
             <span>Stellar Testnet</span>
           </div>
 
@@ -208,7 +208,7 @@ export function LeftSidebar() {
             </button> */}
 
             {/* X Tracker - hidden on mobile */}
-            {/* <button className="hidden sm:flex items-center gap-1.5 bg-[var(--card-bg)] border border-[#333] text-white px-2.5 py-1 rounded hover:bg-[var(--hover-bg)] transition-colors flex-shrink-0">
+            {/* <button className="hidden sm:flex items-center gap-1.5 bg-[var(--card-bg)] border border-[#333] text-[var(--foreground)] px-2.5 py-1 rounded hover:bg-[var(--hover-bg)] transition-colors flex-shrink-0">
               <span className="font-bold">𝕏</span>
               <span className="hidden md:inline">Tracker</span>
             </button>
@@ -216,37 +216,37 @@ export function LeftSidebar() {
 
           <div className="grid grid-cols-3 grid-rows-2 text-xs">
             {/* Settings Icon */}
-            {/* <button className="flex items-center gap-1.5 text-[#888] hover:text-white px-2 py-1 rounded hover:bg-[var(--card-bg)] transition-colors">
+            {/* <button className="flex items-center gap-1.5 text-[#888] hover:text-[var(--foreground)] px-2 py-1 rounded hover:bg-[var(--card-bg)] transition-colors">
               <Settings className="w-3.5 h-3.5" />
               <span>Settings</span>
             </button> */}
 
             {/* Holding - hidden on smaller screens */}
-              {/* <button className="hidden lg:flex items-center gap-1.5 text-[#888] hover:text-white px-2 py-1 rounded hover:bg-[var(--card-bg)] transition-colors">
+              {/* <button className="hidden lg:flex items-center gap-1.5 text-[#888] hover:text-[var(--foreground)] px-2 py-1 rounded hover:bg-[var(--card-bg)] transition-colors">
                 <BarChart3 className="w-3.5 h-3.5" />
                 <span>Holding</span>
               </button> */}
 
               {/* Watchlist - hidden on smaller screens */}
-              {/* <button className="hidden lg:flex items-center gap-1.5 text-[#888] hover:text-white px-2 py-1 rounded hover:bg-[var(--card-bg)] transition-colors">
+              {/* <button className="hidden lg:flex items-center gap-1.5 text-[#888] hover:text-[var(--foreground)] px-2 py-1 rounded hover:bg-[var(--card-bg)] transition-colors">
                 <Star className="w-3.5 h-3.5" />
                 <span>Watchlist</span>
               </button> */}
 
               {/* Trending - hidden on smaller screens */}
-              {/* <button className="hidden xl:flex items-center gap-1.5 text-[#888] hover:text-white px-2 py-1 rounded hover:bg-[var(--card-bg)] transition-colors">
+              {/* <button className="hidden xl:flex items-center gap-1.5 text-[#888] hover:text-[var(--foreground)] px-2 py-1 rounded hover:bg-[var(--card-bg)] transition-colors">
                 <TrendingUp className="w-3.5 h-3.5" />
                 <span>Trending</span>
               </button> */}
 
               {/* Rank - hidden on smaller screens */}
-              {/* <button className="hidden xl:flex items-center gap-1.5 text-[#888] hover:text-white px-2 py-1 rounded hover:bg-[var(--card-bg)] transition-colors">
+              {/* <button className="hidden xl:flex items-center gap-1.5 text-[#888] hover:text-[var(--foreground)] px-2 py-1 rounded hover:bg-[var(--card-bg)] transition-colors">
                 <Trophy className="w-3.5 h-3.5" />
                 <span>Rank</span>
               </button> */}
 
               {/* Signal - hidden on smaller screens */}
-              {/*<button className="hidden 2xl:flex items-center gap-1.5 text-[#888] hover:text-white px-2 py-1 rounded hover:bg-[var(--card-bg)] transition-colors">
+              {/*<button className="hidden 2xl:flex items-center gap-1.5 text-[#888] hover:text-[var(--foreground)] px-2 py-1 rounded hover:bg-[var(--card-bg)] transition-colors">
                 <AtSign className="w-3.5 h-3.5" />
                 <span>Signal</span>
               </button>

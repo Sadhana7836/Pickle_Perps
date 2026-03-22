@@ -36,7 +36,7 @@ export function PageLayout({ children, title, showBackButton = true }: PageLayou
             </button>
           )}
           {title && (
-            <h1 className="text-2xl font-bold text-white">{title}</h1>
+            <h1 className="text-2xl font-bold text-[var(--foreground)]">{title}</h1>
           )}
         </div>
       )}

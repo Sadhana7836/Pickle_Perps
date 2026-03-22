@@ -195,11 +195,11 @@ export function AutoCopyManager({ onCopyExecuted }: AutoCopyManagerProps) {
     <div className="space-y-4">
       {/* Notifications Toggle */}
       <div className="flex items-center justify-between">
-        <h3 className="text-white font-medium text-sm">Copy Trading Monitor</h3>
+        <h3 className="text-[var(--foreground)] font-medium text-sm">Copy Trading Monitor</h3>
         <button
           onClick={() => setShowNotifications(!showNotifications)}
           className={`p-2 rounded-lg transition-colors ${
-            showNotifications ? "bg-[var(--accent-green)]/10 text-[var(--accent-green)]" : "bg-[var(--card-bg)] text-[#555]"
+            showNotifications ? "bg-[var(--accent-green)]/10 text-[var(--accent-green)]" : "bg-[var(--card-bg)] text-[var(--text-muted)]"
           }`}
         >
           {showNotifications ? <Bell className="w-4 h-4" /> : <BellOff className="w-4 h-4" />}
@@ -209,12 +209,12 @@ export function AutoCopyManager({ onCopyExecuted }: AutoCopyManagerProps) {
       {/* Active Subscriptions with Auto-Copy Toggle */}
       {activeSubscriptions.length > 0 && (
         <div className="bg-[var(--sidebar-bg)] rounded-lg border border-[var(--card-bg)] p-3">
-          <p className="text-[#555] text-xs mb-2">Auto-Copy Mode</p>
+          <p className="text-[var(--text-muted)] text-xs mb-2">Auto-Copy Mode</p>
           <div className="space-y-2">
             {activeSubscriptions.map((sub: Subscription) => (
               <div key={sub.id.toString()} className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="text-white text-xs font-mono">
+                  <span className="text-[var(--foreground)] text-xs font-mono">
                     {sub.leader.slice(0, 6)}...{sub.leader.slice(-4)}
                   </span>
                   {sub.config.useProportionalCopy && (
@@ -228,7 +228,7 @@ export function AutoCopyManager({ onCopyExecuted }: AutoCopyManagerProps) {
                   className={`flex items-center gap-1 px-2 py-1 rounded text-xs transition-colors ${
                     autoModeLeaders.has(sub.leader.toLowerCase())
                       ? "bg-[var(--accent-green)]/20 text-[var(--accent-green)]"
-                      : "bg-[var(--card-bg)] text-[#555] hover:text-white"
+                      : "bg-[var(--card-bg)] text-[var(--text-muted)] hover:text-[var(--foreground)]"
                   }`}
                 >
                   <Zap className="w-3 h-3" />
@@ -264,7 +264,7 @@ export function AutoCopyManager({ onCopyExecuted }: AutoCopyManagerProps) {
       {/* Recent Leader Trades */}
       {recentTrades.length > 0 && showNotifications && (
         <div className="bg-[var(--sidebar-bg)] rounded-lg border border-[var(--card-bg)] p-3">
-          <p className="text-[#555] text-xs mb-2">Recent Leader Activity</p>
+          <p className="text-[var(--text-muted)] text-xs mb-2">Recent Leader Activity</p>
           <div className="space-y-1 max-h-32 overflow-y-auto">
             {recentTrades.slice(0, 5).map((event, idx) => (
               <div key={`${event.txHash}-${idx}`} className="flex items-center justify-between text-xs">
@@ -275,7 +275,7 @@ export function AutoCopyManager({ onCopyExecuted }: AutoCopyManagerProps) {
                         ? event.isLong
                           ? "bg-[var(--accent-green)]/10 text-[var(--accent-green)]"
                           : "bg-[var(--accent-red)]/10 text-[var(--accent-red)]"
-                        : "bg-[#555]/10 text-[#555]"
+                        : "bg-[#555]/10 text-[var(--text-muted)]"
                     }`}
                   >
                     {event.type}
@@ -284,7 +284,7 @@ export function AutoCopyManager({ onCopyExecuted }: AutoCopyManagerProps) {
                     {event.leader.slice(0, 6)}...
                   </span>
                 </div>
-                <span className="text-[#555]">{parseFloat(event.margin).toFixed(4)} XLM</span>
+                <span className="text-[var(--text-muted)]">{parseFloat(event.margin).toFixed(4)} XLM</span>
               </div>
             ))}
           </div>
@@ -330,22 +330,22 @@ function PendingTradeCard({
           >
             {trade.leaderEvent.isLong ? "LONG" : "SHORT"}
           </span>
-          <span className="text-white text-xs">{trade.suggestedLeverage}x</span>
+          <span className="text-[var(--foreground)] text-xs">{trade.suggestedLeverage}x</span>
         </div>
-        <div className="flex items-center gap-1 text-[#555] text-xs">
+        <div className="flex items-center gap-1 text-[var(--text-muted)] text-xs">
           <Clock className="w-3 h-3" />
           {secondsLeft}s
         </div>
       </div>
 
       <div className="flex items-center justify-between mb-2 text-xs">
-        <span className="text-[#555]">Margin</span>
-        <span className="text-white">{parseFloat(trade.suggestedMargin).toFixed(4)} XLM</span>
+        <span className="text-[var(--text-muted)]">Margin</span>
+        <span className="text-[var(--foreground)]">{parseFloat(trade.suggestedMargin).toFixed(4)} XLM</span>
       </div>
 
       {trade.useProportional && trade.leaderCapital && (
         <div className="flex items-center justify-between mb-2 text-xs">
-          <span className="text-[#555]">Leader using</span>
+          <span className="text-[var(--text-muted)]">Leader using</span>
           <span className="text-[var(--accent-green)]">
             {calculateLeaderCapitalPercentage(trade.leaderEvent.margin, trade.leaderCapital).toFixed(1)}%
           </span>
@@ -356,7 +356,7 @@ function PendingTradeCard({
         <button
           onClick={onAccept}
           disabled={isLoading || timeLeft === 0}
-          className="flex-1 flex items-center justify-center gap-1 bg-[var(--accent-green)] hover:bg-[var(--accent-green)]/80 disabled:bg-[#333] disabled:text-[#555] text-black text-xs font-medium py-1.5 rounded transition-colors"
+          className="flex-1 flex items-center justify-center gap-1 bg-[var(--accent-green)] hover:bg-[var(--accent-green)]/80 disabled:bg-[#333] disabled:text-[var(--text-muted)] text-black text-xs font-medium py-1.5 rounded transition-colors"
         >
           <Check className="w-3 h-3" />
           Copy
@@ -364,7 +364,7 @@ function PendingTradeCard({
         <button
           onClick={onReject}
           disabled={isLoading}
-          className="flex-1 flex items-center justify-center gap-1 bg-[var(--card-bg)] hover:bg-[var(--hover-bg)] text-[#555] hover:text-white text-xs py-1.5 rounded transition-colors"
+          className="flex-1 flex items-center justify-center gap-1 bg-[var(--card-bg)] hover:bg-[var(--hover-bg)] text-[var(--text-muted)] hover:text-[var(--foreground)] text-xs py-1.5 rounded transition-colors"
         >
           <X className="w-3 h-3" />
           Skip

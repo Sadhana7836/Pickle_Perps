@@ -53,7 +53,7 @@ export default function CopyTradingPage() {
         <div className="max-w-4xl mx-auto py-12">
           <div className="text-center">
             <Copy className="w-16 h-16 mx-auto text-[var(--text-muted)] mb-6" />
-            <h1 className="text-3xl font-bold text-white mb-4">Copy Trading</h1>
+            <h1 className="text-3xl font-bold text-[var(--foreground)] mb-4">Copy Trading</h1>
             <p className="text-[var(--text-muted)] mb-8">
               Copy the trades of top performers automatically. Coming soon!
             </p>
@@ -81,7 +81,7 @@ export default function CopyTradingPage() {
             <div className="flex justify-end mb-4">
               <button
                 onClick={() => setShowRegisterModal(true)}
-                className="flex items-center gap-2 px-4 py-2 bg-[var(--card-bg)] hover:bg-[var(--hover-bg)] border border-[var(--border-color)] text-white text-sm rounded-lg transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-[var(--card-bg)] hover:bg-[var(--hover-bg)] border border-[var(--border-color)] text-[var(--foreground)] text-sm rounded-lg transition-colors"
               >
                 <Plus className="w-4 h-4" />
                 Become a Leader
@@ -94,7 +94,7 @@ export default function CopyTradingPage() {
             <div className="bg-[var(--sidebar-bg)] border border-[var(--card-bg)] rounded-lg p-4 mb-4">
               <div className="flex items-center gap-2 mb-3">
                 <Settings className="w-4 h-4 text-[var(--accent-green)]" />
-                <h3 className="text-white font-medium text-sm">Leader Settings</h3>
+                <h3 className="text-[var(--foreground)] font-medium text-sm">Leader Settings</h3>
               </div>
               <div className="flex items-center gap-3">
                 <div className="flex-1">
@@ -104,7 +104,7 @@ export default function CopyTradingPage() {
                     value={capitalInput}
                     onChange={(e) => setCapitalInput(e.target.value)}
                     placeholder={leaderCapital || "Enter your capital"}
-                    className="w-full bg-[var(--background)] border border-[var(--card-bg)] rounded px-3 py-2 text-white text-sm focus:border-[var(--border-color)] focus:outline-none"
+                    className="w-full bg-[var(--background)] border border-[var(--card-bg)] rounded px-3 py-2 text-[var(--foreground)] text-sm focus:border-[var(--border-color)] focus:outline-none"
                   />
                 </div>
                 <button
@@ -143,7 +143,7 @@ export default function CopyTradingPage() {
             <div className="bg-[var(--sidebar-bg)] border border-[var(--card-bg)] rounded-lg p-4">
               <div className="flex items-center gap-2 mb-3">
                 <Users className="w-4 h-4 text-[var(--accent-green)]" />
-                <h3 className="text-white font-medium text-sm">My Subscriptions</h3>
+                <h3 className="text-[var(--foreground)] font-medium text-sm">My Subscriptions</h3>
               </div>
               <div className="space-y-2">
                 {activeSubscriptions.map((sub: Subscription) => (
@@ -152,7 +152,7 @@ export default function CopyTradingPage() {
                     className="bg-[var(--background)] rounded-lg p-3 border border-[var(--card-bg)]"
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-white text-xs font-mono">
+                      <span className="text-[var(--foreground)] text-xs font-mono">
                         {sub.leader.slice(0, 6)}...{sub.leader.slice(-4)}
                       </span>
                       {sub.config.useProportionalCopy && (
@@ -163,13 +163,13 @@ export default function CopyTradingPage() {
                     </div>
                     <div className="flex items-center justify-between text-xs">
                       <span className="text-[var(--text-muted)]">Allocation</span>
-                      <span className="text-white">
+                      <span className="text-[var(--foreground)]">
                         {parseFloat(formatAmount(sub.config.allocationAmount)).toFixed(4)} XLM
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-xs mt-1">
                       <span className="text-[var(--text-muted)]">Trades</span>
-                      <span className="text-white">{Number(sub.totalCopiedTrades)}</span>
+                      <span className="text-[var(--foreground)]">{Number(sub.totalCopiedTrades)}</span>
                     </div>
                     <div className="flex items-center justify-between text-xs mt-1">
                       <span className="text-[var(--text-muted)]">PnL</span>

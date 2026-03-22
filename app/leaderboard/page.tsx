@@ -71,7 +71,7 @@ export default function LeaderboardPage() {
               onClick={() => setActiveTab(tab)}
               className={`px-3 py-1.5 text-xs rounded whitespace-nowrap transition-colors ${
                 activeTab === tab
-                  ? "bg-[var(--card-bg)] text-white"
+                  ? "bg-[var(--card-bg)] text-[var(--foreground)]"
                   : "text-[var(--text-muted)] hover:text-[var(--text-secondary)]"
               }`}
             >
@@ -89,7 +89,7 @@ export default function LeaderboardPage() {
               placeholder="Search wallet..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-40 bg-[var(--sidebar-bg)] border border-[var(--card-bg)] rounded pl-8 pr-3 py-1.5 text-xs text-white placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--border-color)]"
+              className="w-40 bg-[var(--sidebar-bg)] border border-[var(--card-bg)] rounded pl-8 pr-3 py-1.5 text-xs text-[var(--foreground)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--border-color)]"
             />
           </div>
 
@@ -101,7 +101,7 @@ export default function LeaderboardPage() {
                 onClick={() => setTimeFrame(tf)}
                 className={`px-2.5 py-1.5 text-xs transition-colors ${
                   timeFrame === tf
-                    ? "bg-[var(--card-bg)] text-white"
+                    ? "bg-[var(--card-bg)] text-[var(--foreground)]"
                     : "text-[var(--text-muted)] hover:text-[var(--text-secondary)]"
                 }`}
               >
@@ -110,7 +110,7 @@ export default function LeaderboardPage() {
             ))}
           </div>
 
-          <button className="p-1.5 text-[var(--text-muted)] hover:text-white transition-colors">
+          <button className="p-1.5 text-[var(--text-muted)] hover:text-[var(--foreground)] transition-colors">
             <Settings className="w-4 h-4" />
           </button>
         </div>
@@ -169,11 +169,11 @@ export default function LeaderboardPage() {
 
                   {/* Wallet */}
                   <div className="col-span-3 flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-[10px] font-bold text-white">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-[10px] font-bold text-[var(--foreground)]">
                       {trader.address.slice(2, 4).toUpperCase()}
                     </div>
                     <div>
-                      <span className="text-sm text-white font-medium">
+                      <span className="text-sm text-[var(--foreground)] font-medium">
                         {trader.address.slice(0, 6)}...{trader.address.slice(-4)}
                       </span>
                     </div>
@@ -202,7 +202,7 @@ export default function LeaderboardPage() {
 
                   {/* Trades */}
                   <div className="col-span-2 text-right">
-                    <span className="text-sm text-white">{trader.totalTrades}</span>
+                    <span className="text-sm text-[var(--foreground)]">{trader.totalTrades}</span>
                     <span className="text-xs text-[var(--text-muted)] ml-1">
                       (<span className="text-[var(--accent-green)]">{trader.totalBuys}</span>/<span className="text-[var(--accent-red)]">{trader.totalSells}</span>)
                     </span>
@@ -217,7 +217,7 @@ export default function LeaderboardPage() {
 
                   {/* Positions */}
                   <div className="col-span-1 text-right">
-                    <span className="text-sm text-white">{trader.openPositions}</span>
+                    <span className="text-sm text-[var(--foreground)]">{trader.openPositions}</span>
                     <span className="text-xs text-[var(--text-muted)]">/{trader.totalPositions}</span>
                   </div>
                 </div>

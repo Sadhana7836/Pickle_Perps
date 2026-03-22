@@ -98,7 +98,7 @@ export const TrendingColumn = memo(function TrendingColumn({
               className={`text-xs px-2 py-1 rounded font-medium transition-colors ${
                 filter === "all"
                   ? "bg-[#ff6b35]/20 text-[#ff6b35] border border-[#ff6b35]/30"
-                  : "bg-transparent text-[#555] hover:text-white"
+                  : "bg-transparent text-[var(--text-muted)] hover:text-[var(--foreground)]"
               }`}
             >
               All
@@ -108,7 +108,7 @@ export const TrendingColumn = memo(function TrendingColumn({
               className={`text-xs px-2 py-1 rounded font-medium transition-colors ${
                 filter === "tokens"
                   ? "bg-[var(--accent-green)]/20 text-[var(--accent-green)] border border-[var(--accent-green)]/30"
-                  : "bg-transparent text-[#555] hover:text-white"
+                  : "bg-transparent text-[var(--text-muted)] hover:text-[var(--foreground)]"
               }`}
             >
               Tokens
@@ -118,7 +118,7 @@ export const TrendingColumn = memo(function TrendingColumn({
               className={`text-xs px-2 py-1 rounded font-medium transition-colors ${
                 filter === "rwa"
                   ? "bg-[#ffd700]/20 text-[#ffd700] border border-[#ffd700]/30"
-                  : "bg-transparent text-[#555] hover:text-white"
+                  : "bg-transparent text-[var(--text-muted)] hover:text-[var(--foreground)]"
               }`}
             >
               RWA
@@ -128,7 +128,7 @@ export const TrendingColumn = memo(function TrendingColumn({
           {/* Title */}
           <div className="flex items-center gap-2">
             <Flame className="w-4 h-4 text-[#ff6b35]" />
-            <span className="text-white font-semibold text-sm whitespace-nowrap">Trending</span>
+            <span className="text-[var(--foreground)] font-semibold text-sm whitespace-nowrap">Trending</span>
           </div>
         </div>
       </div>
@@ -136,7 +136,7 @@ export const TrendingColumn = memo(function TrendingColumn({
       {/* Trending List */}
       <div className="flex-1 overflow-y-auto px-2 py-2 space-y-1.5 scrollbar-thin scrollbar-thumb-[#333] scrollbar-track-transparent">
         {filteredItems.length === 0 ? (
-          <div className="flex items-center justify-center h-32 text-[#555] text-sm">
+          <div className="flex items-center justify-center h-32 text-[var(--text-muted)] text-sm">
             No trending items found
           </div>
         ) : (
@@ -160,7 +160,7 @@ export const TrendingColumn = memo(function TrendingColumn({
 
       {/* Footer */}
       <div className="px-3 py-2 border-t border-[var(--card-bg)] bg-[var(--sidebar-bg)]">
-        <div className="flex items-center justify-between text-[10px] text-[#555]">
+        <div className="flex items-center justify-between text-[10px] text-[var(--text-muted)]">
           <span>Mixed trending assets</span>
           <span className="flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-[#ff6b35] animate-pulse"></span>

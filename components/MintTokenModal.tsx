@@ -141,12 +141,12 @@ export function MintTokenModal({ isOpen, onClose, onSuccess }: MintTokenModalPro
         <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--card-bg)]">
           <div className="flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-[var(--accent-primary)]" />
-            <span className="text-white font-semibold">Create Token</span>
+            <span className="text-[var(--foreground)] font-semibold">Create Token</span>
           </div>
           <button
             onClick={handleClose}
             disabled={step === "uploading" || step === "minting"}
-            className="text-[#555] hover:text-white transition-colors disabled:opacity-50"
+            className="text-[var(--text-muted)] hover:text-[var(--foreground)] transition-colors disabled:opacity-50"
           >
             <X className="w-5 h-5" />
           </button>
@@ -159,16 +159,16 @@ export function MintTokenModal({ isOpen, onClose, onSuccess }: MintTokenModalPro
               <div className="w-16 h-16 rounded-full bg-[var(--accent-primary)]/20 flex items-center justify-center mb-4">
                 <CheckCircle2 className="w-8 h-8 text-[var(--accent-primary)]" />
               </div>
-              <h3 className="text-white font-semibold text-lg mb-1">Token Created!</h3>
+              <h3 className="text-[var(--foreground)] font-semibold text-lg mb-1">Token Created!</h3>
               <p className="text-[#888] text-sm">{name} ({symbol}) is now live</p>
             </div>
           ) : step === "uploading" || step === "minting" ? (
             <div className="flex flex-col items-center py-8">
               <Loader2 className="w-12 h-12 text-[var(--accent-primary)] animate-spin mb-4" />
-              <p className="text-white font-medium">
+              <p className="text-[var(--foreground)] font-medium">
                 {step === "uploading" ? "Uploading image..." : "Creating token..."}
               </p>
-              <p className="text-[#555] text-sm mt-1">Please confirm in your wallet</p>
+              <p className="text-[var(--text-muted)] text-sm mt-1">Please confirm in your wallet</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -188,7 +188,7 @@ export function MintTokenModal({ isOpen, onClose, onSuccess }: MintTokenModalPro
                   {imagePreview ? (
                     <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
                   ) : (
-                    <Upload className="w-6 h-6 text-[#555]" />
+                    <Upload className="w-6 h-6 text-[var(--text-muted)]" />
                   )}
                 </label>
                 <div className="flex-1 space-y-3">
@@ -197,7 +197,7 @@ export function MintTokenModal({ isOpen, onClose, onSuccess }: MintTokenModalPro
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Token Name"
-                    className="w-full px-3 py-2 bg-[var(--background)] border border-[#222] rounded-lg text-white text-sm placeholder-[#444] focus:outline-none focus:border-[var(--accent-primary)]/50"
+                    className="w-full px-3 py-2 bg-[var(--background)] border border-[#222] rounded-lg text-[var(--foreground)] text-sm placeholder-[#444] focus:outline-none focus:border-[var(--accent-primary)]/50"
                     required
                   />
                   <input
@@ -206,7 +206,7 @@ export function MintTokenModal({ isOpen, onClose, onSuccess }: MintTokenModalPro
                     onChange={(e) => setSymbol(e.target.value.toUpperCase())}
                     placeholder="SYMBOL"
                     maxLength={10}
-                    className="w-full px-3 py-2 bg-[var(--background)] border border-[#222] rounded-lg text-white text-sm placeholder-[#444] focus:outline-none focus:border-[var(--accent-primary)]/50"
+                    className="w-full px-3 py-2 bg-[var(--background)] border border-[#222] rounded-lg text-[var(--foreground)] text-sm placeholder-[#444] focus:outline-none focus:border-[var(--accent-primary)]/50"
                     required
                   />
                 </div>
@@ -219,7 +219,7 @@ export function MintTokenModal({ isOpen, onClose, onSuccess }: MintTokenModalPro
                   type="text"
                   value={totalSupply}
                   onChange={(e) => setTotalSupply(e.target.value)}
-                  className="w-full px-3 py-2 bg-[var(--background)] border border-[#222] rounded-lg text-white text-sm placeholder-[#444] focus:outline-none focus:border-[var(--accent-primary)]/50"
+                  className="w-full px-3 py-2 bg-[var(--background)] border border-[#222] rounded-lg text-[var(--foreground)] text-sm placeholder-[#444] focus:outline-none focus:border-[var(--accent-primary)]/50"
                   required
                 />
               </div>
@@ -230,13 +230,13 @@ export function MintTokenModal({ isOpen, onClose, onSuccess }: MintTokenModalPro
 
                 {/* Website */}
                 <div className="relative">
-                  <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#555]" />
+                  <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--text-muted)]" />
                   <input
                     type="url"
                     value={website}
                     onChange={(e) => setWebsite(e.target.value)}
                     placeholder="https://yourtoken.com"
-                    className="w-full pl-9 pr-3 py-2 bg-[var(--background)] border border-[#222] rounded-lg text-white text-sm placeholder-[#444] focus:outline-none focus:border-[var(--accent-primary)]/50"
+                    className="w-full pl-9 pr-3 py-2 bg-[var(--background)] border border-[#222] rounded-lg text-[var(--foreground)] text-sm placeholder-[#444] focus:outline-none focus:border-[var(--accent-primary)]/50"
                   />
 
                 </div>
@@ -245,7 +245,7 @@ export function MintTokenModal({ isOpen, onClose, onSuccess }: MintTokenModalPro
                 <div className="relative">
                   <svg
                     viewBox="0 0 24 24"
-                    className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#555]"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--text-muted)]"
                     fill="currentColor"
                   >
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -255,20 +255,20 @@ export function MintTokenModal({ isOpen, onClose, onSuccess }: MintTokenModalPro
                     value={twitter}
                     onChange={(e) => setTwitter(e.target.value)}
                     placeholder="@yourtoken or https://x.com/yourtoken"
-                    className="w-full pl-9 pr-3 py-2 bg-[var(--background)] border border-[#222] rounded-lg text-white text-sm placeholder-[#444] focus:outline-none focus:border-[var(--accent-primary)]/50"
+                    className="w-full pl-9 pr-3 py-2 bg-[var(--background)] border border-[#222] rounded-lg text-[var(--foreground)] text-sm placeholder-[#444] focus:outline-none focus:border-[var(--accent-primary)]/50"
                   />
 
                 </div>
 
                 {/* Telegram */}
                 <div className="relative">
-                  <Send className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#555]" />
+                  <Send className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--text-muted)]" />
                   <input
                     type="text"
                     value={telegram}
                     onChange={(e) => setTelegram(e.target.value)}
                     placeholder="@yourtoken or https://t.me/yourtoken"
-                    className="w-full pl-9 pr-3 py-2 bg-[var(--background)] border border-[#222] rounded-lg text-white text-sm placeholder-[#444] focus:outline-none focus:border-[var(--accent-primary)]/50"
+                    className="w-full pl-9 pr-3 py-2 bg-[var(--background)] border border-[#222] rounded-lg text-[var(--foreground)] text-sm placeholder-[#444] focus:outline-none focus:border-[var(--accent-primary)]/50"
                   />
 
                 </div>
@@ -293,27 +293,27 @@ export function MintTokenModal({ isOpen, onClose, onSuccess }: MintTokenModalPro
                   </span>
                 </div>
                 <div className="flex justify-between mt-2 text-[10px]">
-                  <span className="text-[#555]">You: {creatorAllocation}%</span>
-                  <span className="text-[#555]">Bonding Curve: {100 - creatorAllocation}%</span>
+                  <span className="text-[var(--text-muted)]">You: {creatorAllocation}%</span>
+                  <span className="text-[var(--text-muted)]">Bonding Curve: {100 - creatorAllocation}%</span>
                 </div>
               </div>
 
               {/* Info */}
               <div className="bg-[var(--sidebar-bg)] rounded-lg p-3 space-y-1.5">
                 <div className="flex justify-between text-xs">
-                  <span className="text-[#555]">Minting Fee</span>
+                  <span className="text-[var(--text-muted)]">Minting Fee</span>
                   <span className="text-[var(--accent-primary)] font-medium">{data.mintingFee} XLM</span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span className="text-[#555]">You Receive</span>
-                  <span className="text-white">{creatorAllocation}% of supply</span>
+                  <span className="text-[var(--text-muted)]">You Receive</span>
+                  <span className="text-[var(--foreground)]">{creatorAllocation}% of supply</span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span className="text-[#555]">Trading</span>
-                  <span className="text-white">Spot + Perps enabled</span>
+                  <span className="text-[var(--text-muted)]">Trading</span>
+                  <span className="text-[var(--foreground)]">Spot + Perps enabled</span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span className="text-[#555]">Bonding Curve</span>
+                  <span className="text-[var(--text-muted)]">Bonding Curve</span>
                   <span className="text-[var(--accent-primary)]">{100 - creatorAllocation}% listed</span>
                 </div>
               </div>
@@ -327,7 +327,7 @@ export function MintTokenModal({ isOpen, onClose, onSuccess }: MintTokenModalPro
                 Create Token
               </button>
 
-              <p className="text-center text-[#555] text-[10px]">
+              <p className="text-center text-[var(--text-muted)] text-[10px]">
                 Token will be tradeable via perpetual contracts immediately after creation
               </p>
             </form>

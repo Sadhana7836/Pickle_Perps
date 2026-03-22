@@ -74,7 +74,7 @@ export function CopyTradeTable({ onlyRegisteredLeaders = true, onCopy }: CopyTra
               onClick={() => setActiveTab(tab)}
               className={`px-3 py-1.5 text-xs rounded whitespace-nowrap transition-colors ${
                 activeTab === tab
-                  ? "bg-[var(--card-bg)] text-white"
+                  ? "bg-[var(--card-bg)] text-[var(--foreground)]"
                   : "text-gray-500 hover:text-gray-300"
               }`}
             >
@@ -92,7 +92,7 @@ export function CopyTradeTable({ onlyRegisteredLeaders = true, onCopy }: CopyTra
               placeholder="Search wallet..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-40 bg-[var(--sidebar-bg)] border border-[var(--card-bg)] rounded pl-8 pr-3 py-1.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#333]"
+              className="w-40 bg-[var(--sidebar-bg)] border border-[var(--card-bg)] rounded pl-8 pr-3 py-1.5 text-xs text-[var(--foreground)] placeholder-gray-500 focus:outline-none focus:border-[#333]"
             />
           </div>
 
@@ -104,7 +104,7 @@ export function CopyTradeTable({ onlyRegisteredLeaders = true, onCopy }: CopyTra
                 onClick={() => setTimeFrame(tf)}
                 className={`px-2.5 py-1.5 text-xs transition-colors ${
                   timeFrame === tf
-                    ? "bg-[var(--card-bg)] text-white"
+                    ? "bg-[var(--card-bg)] text-[var(--foreground)]"
                     : "text-gray-500 hover:text-gray-300"
                 }`}
               >
@@ -113,7 +113,7 @@ export function CopyTradeTable({ onlyRegisteredLeaders = true, onCopy }: CopyTra
             ))}
           </div>
 
-          <button className="p-1.5 text-gray-500 hover:text-white transition-colors">
+          <button className="p-1.5 text-gray-500 hover:text-[var(--foreground)] transition-colors">
             <Settings className="w-4 h-4" />
           </button>
         </div>
@@ -173,12 +173,12 @@ export function CopyTradeTable({ onlyRegisteredLeaders = true, onCopy }: CopyTra
 
                   {/* Wallet */}
                   <div className="col-span-3 flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-blue-500 flex items-center justify-center text-[10px] font-bold text-white">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-blue-500 flex items-center justify-center text-[10px] font-bold text-[var(--foreground)]">
                       {leader.address.slice(2, 4).toUpperCase()}
                     </div>
                     <div>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-sm text-white font-medium">
+                        <span className="text-sm text-[var(--foreground)] font-medium">
                           {leader.address.slice(0, 6)}...{leader.address.slice(-4)}
                         </span>
                         {leader.isRegisteredLeader && (
@@ -225,7 +225,7 @@ export function CopyTradeTable({ onlyRegisteredLeaders = true, onCopy }: CopyTra
 
                   {/* Followers */}
                   <div className="col-span-1 text-right">
-                    <span className="text-sm text-white">
+                    <span className="text-sm text-[var(--foreground)]">
                       {leader.totalFollowers}
                     </span>
                   </div>
@@ -237,7 +237,7 @@ export function CopyTradeTable({ onlyRegisteredLeaders = true, onCopy }: CopyTra
                     ) : (
                       <button
                         onClick={() => onCopy?.(leader.address)}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[var(--card-bg)] hover:bg-[var(--hover-bg)] border border-[#333] text-white text-xs rounded transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[var(--card-bg)] hover:bg-[var(--hover-bg)] border border-[#333] text-[var(--foreground)] text-xs rounded transition-colors"
                       >
                         <Copy className="w-3 h-3" />
                         Copy

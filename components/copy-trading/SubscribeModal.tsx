@@ -75,10 +75,10 @@ export function SubscribeModal({
       <div className="bg-[var(--background)] border border-[var(--card-bg)] rounded-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-[var(--card-bg)]">
-          <h2 className="text-lg font-semibold text-white">Subscribe to Leader</h2>
+          <h2 className="text-lg font-semibold text-[var(--foreground)]">Subscribe to Leader</h2>
           <button
             onClick={onClose}
-            className="p-1 text-gray-400 hover:text-white transition-colors"
+            className="p-1 text-gray-400 hover:text-[var(--foreground)] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -89,13 +89,13 @@ export function SubscribeModal({
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">Leader</p>
-              <p className="text-white font-medium">
+              <p className="text-[var(--foreground)] font-medium">
                 {leader.address.slice(0, 8)}...{leader.address.slice(-6)}
               </p>
             </div>
             <div className="text-right">
               <p className="text-sm text-gray-400">Profit Share</p>
-              <p className="text-white font-medium">{leader.profitSharePercent}%</p>
+              <p className="text-[var(--foreground)] font-medium">{leader.profitSharePercent}%</p>
             </div>
           </div>
           <div className="flex items-center justify-between mt-3 pt-3 border-t border-[var(--card-bg)]">
@@ -105,11 +105,11 @@ export function SubscribeModal({
             </div>
             <div>
               <p className="text-xs text-gray-500">Followers</p>
-              <p className="text-sm text-white">{Number(leader.totalFollowers)}</p>
+              <p className="text-sm text-[var(--foreground)]">{Number(leader.totalFollowers)}</p>
             </div>
             <div>
               <p className="text-xs text-gray-500">Min Follow</p>
-              <p className="text-sm text-white">{minFollow.toFixed(4)} XLM</p>
+              <p className="text-sm text-[var(--foreground)]">{minFollow.toFixed(4)} XLM</p>
             </div>
           </div>
         </div>
@@ -126,7 +126,7 @@ export function SubscribeModal({
               value={allocationAmount}
               onChange={(e) => setAllocationAmount(e.target.value)}
               placeholder={`Min: ${minFollow.toFixed(4)}`}
-              className="w-full bg-[var(--sidebar-bg)] border border-[#333] rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-green-500"
+              className="w-full bg-[var(--sidebar-bg)] border border-[#333] rounded-lg px-4 py-3 text-[var(--foreground)] placeholder-gray-500 focus:outline-none focus:border-green-500"
             />
             <p className="text-xs text-gray-500 mt-1">
               {useProportionalCopy
@@ -147,7 +147,7 @@ export function SubscribeModal({
               placeholder="10"
               min="0"
               max="100"
-              className="w-full bg-[var(--sidebar-bg)] border border-[#333] rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-green-500"
+              className="w-full bg-[var(--sidebar-bg)] border border-[#333] rounded-lg px-4 py-3 text-[var(--foreground)] placeholder-gray-500 focus:outline-none focus:border-green-500"
             />
             <p className="text-xs text-gray-500 mt-1">
               Cap leverage even if leader uses higher
@@ -250,7 +250,7 @@ export function SubscribeModal({
           <div>
             <button
               onClick={() => setShowAdvanced(!showAdvanced)}
-              className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+              className="flex items-center gap-2 text-sm text-gray-400 hover:text-[var(--foreground)] transition-colors"
             >
               <ChevronDown className={`w-4 h-4 transition-transform ${showAdvanced ? "rotate-180" : ""}`} />
               Advanced Settings
@@ -267,7 +267,7 @@ export function SubscribeModal({
                     value={maxPositionSize}
                     onChange={(e) => setMaxPositionSize(e.target.value)}
                     placeholder="0"
-                    className="w-full bg-[var(--sidebar-bg)] border border-[#333] rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-green-500"
+                    className="w-full bg-[var(--sidebar-bg)] border border-[#333] rounded-lg px-3 py-2 text-sm text-[var(--foreground)] placeholder-gray-500 focus:outline-none focus:border-green-500"
                   />
                 </div>
               </div>
@@ -300,7 +300,7 @@ export function SubscribeModal({
           <button
             onClick={handleSubmit}
             disabled={isLoading || !allocationAmount || allocationNum < minFollow}
-            className="w-full py-3 bg-green-600 hover:bg-green-700 disabled:bg-[#333] disabled:text-gray-500 text-white font-medium rounded-lg transition-colors"
+            className="w-full py-3 bg-green-600 hover:bg-green-700 disabled:bg-[#333] disabled:text-gray-500 text-[var(--foreground)] font-medium rounded-lg transition-colors"
           >
             {isLoading ? "Subscribing..." : `Subscribe with ${allocationAmount || "0"} XLM`}
           </button>

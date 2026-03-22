@@ -216,7 +216,7 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
       <div className="flex items-center justify-between px-4 py-2 border-b border-[var(--card-bg)] bg-[var(--background)]">
         <div className="flex items-center gap-3">
           <button onClick={onBack} className="p-1.5 hover:bg-[var(--card-bg)] rounded-lg transition-colors">
-            <ArrowLeft className="w-5 h-5 text-[#888] hover:text-white" />
+            <ArrowLeft className="w-5 h-5 text-[#888] hover:text-[var(--foreground)]" />
           </button>
           <div className="w-8 h-8 rounded-lg overflow-hidden bg-[var(--card-bg)] flex items-center justify-center">
             {token.image ? (
@@ -227,14 +227,14 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-white font-bold">{token.name}</span>
+              <span className="text-[var(--foreground)] font-bold">{token.name}</span>
               <span className="text-[var(--accent-green)] text-xs bg-[var(--accent-green)]/10 px-1.5 py-0.5 rounded">PERP</span>
               <button
                 onClick={() => window.open(`https://stellar.expert/explorer/testnet/contract/${token.id}`, '_blank', 'noopener,noreferrer')}
                 className="hover:bg-[var(--card-bg)] p-0.5 rounded transition-colors"
                 title="View on Block Explorer"
               >
-                <ExternalLink className="w-3.5 h-3.5 text-[#555] hover:text-white cursor-pointer" />
+                <ExternalLink className="w-3.5 h-3.5 text-[var(--text-muted)] hover:text-[var(--foreground)] cursor-pointer" />
               </button>
               {token.websiteUrl && (
                 <button
@@ -242,7 +242,7 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
                   className="hover:bg-[var(--card-bg)] p-0.5 rounded transition-colors"
                   title="Website"
                 >
-                  <Globe className="w-3.5 h-3.5 text-[#555] hover:text-[#00bfff] cursor-pointer" />
+                  <Globe className="w-3.5 h-3.5 text-[var(--text-muted)] hover:text-[#00bfff] cursor-pointer" />
                 </button>
               )}
               {token.twitterUrl && (
@@ -258,7 +258,7 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
                 >
                   <svg
                     viewBox="0 0 24 24"
-                    className="w-3.5 h-3.5 text-[#555] hover:text-white"
+                    className="w-3.5 h-3.5 text-[var(--text-muted)] hover:text-[var(--foreground)]"
                     fill="currentColor"
                   >
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -276,10 +276,10 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
                   className="hover:bg-[var(--card-bg)] p-0.5 rounded transition-colors"
                   title="Telegram"
                 >
-                  <Send className="w-3.5 h-3.5 text-[#555] hover:text-[#0088cc] cursor-pointer" />
+                  <Send className="w-3.5 h-3.5 text-[var(--text-muted)] hover:text-[#0088cc] cursor-pointer" />
                 </button>
               )}
-              <Star className="w-3.5 h-3.5 text-[#555] hover:text-yellow-400 cursor-pointer" />
+              <Star className="w-3.5 h-3.5 text-[var(--text-muted)] hover:text-yellow-400 cursor-pointer" />
             </div>
             <span className="text-[#888] text-xs">{token.symbol}</span>
           </div>
@@ -287,14 +287,14 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
 
         <div className="flex items-center gap-6">
           <div className="text-right">
-            <p className="text-xl font-bold text-white">{token.price || "Price TBD"}</p>
+            <p className="text-xl font-bold text-[var(--foreground)]">{token.price || "Price TBD"}</p>
             <p className="text-[#888] text-xs">Price set on first trade</p>
           </div>
           <div className="flex items-center gap-4 text-xs">
-            <div><span className="text-[#555]">24h High</span><p className="text-white">--</p></div>
-            <div><span className="text-[#555]">24h Low</span><p className="text-white">--</p></div>
-            <div><span className="text-[#555]">24h Vol</span><p className="text-white">--</p></div>
-            <div><span className="text-[#555]">MC</span><p className="text-[var(--accent-green)]">{token.marketCap}</p></div>
+            <div><span className="text-[var(--text-muted)]">24h High</span><p className="text-[var(--foreground)]">--</p></div>
+            <div><span className="text-[var(--text-muted)]">24h Low</span><p className="text-[var(--foreground)]">--</p></div>
+            <div><span className="text-[var(--text-muted)]">24h Vol</span><p className="text-[var(--foreground)]">--</p></div>
+            <div><span className="text-[var(--text-muted)]">MC</span><p className="text-[var(--accent-green)]">{token.marketCap}</p></div>
           </div>
         </div>
       </div>
@@ -313,7 +313,7 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
                     key={tf}
                     onClick={() => setTimeframe(tf)}
                     className={`px-2 py-1 text-xs rounded ${
-                      timeframe === tf ? "bg-[#2962ff] text-white" : "text-[#888] hover:text-white hover:bg-[var(--card-bg)]"
+                      timeframe === tf ? "bg-[#2962ff] text-[var(--foreground)]" : "text-[#888] hover:text-[var(--foreground)] hover:bg-[var(--card-bg)]"
                     }`}
                   >
                     {tf}
@@ -324,13 +324,13 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
               <div className="flex items-center bg-[var(--card-bg)] rounded text-xs">
                 <button
                   onClick={() => setChartType("candles")}
-                  className={`px-2 py-1 rounded-l flex items-center gap-1 ${chartType === "candles" ? "bg-[#2962ff] text-white" : "text-[#888]"}`}
+                  className={`px-2 py-1 rounded-l flex items-center gap-1 ${chartType === "candles" ? "bg-[#2962ff] text-[var(--foreground)]" : "text-[#888]"}`}
                 >
                   Candles
                 </button>
                 <button
                   onClick={() => setChartType("graph")}
-                  className={`px-2 py-1 rounded-r flex items-center gap-1 ${chartType === "graph" ? "bg-[#2962ff] text-white" : "text-[#888]"}`}
+                  className={`px-2 py-1 rounded-r flex items-center gap-1 ${chartType === "graph" ? "bg-[#2962ff] text-[var(--foreground)]" : "text-[#888]"}`}
                 >
                   Graph
                 </button>
@@ -342,13 +342,13 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
               <div className="flex items-center bg-[var(--card-bg)] rounded text-xs">
                 <button
                   onClick={() => setPriceMode("Price")}
-                  className={`px-2 py-1 rounded-l ${priceMode === "Price" ? "bg-[#2962ff] text-white" : "text-[#888]"}`}
+                  className={`px-2 py-1 rounded-l ${priceMode === "Price" ? "bg-[#2962ff] text-[var(--foreground)]" : "text-[#888]"}`}
                 >
                   Price
                 </button>
                 <button
                   onClick={() => setPriceMode("MCap")}
-                  className={`px-2 py-1 rounded-r ${priceMode === "MCap" ? "bg-[#2962ff] text-white" : "text-[#888]"}`}
+                  className={`px-2 py-1 rounded-r ${priceMode === "MCap" ? "bg-[#2962ff] text-[var(--foreground)]" : "text-[#888]"}`}
                 >
                   MCap
                 </button>
@@ -357,19 +357,19 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
               <div className="flex items-center bg-[var(--card-bg)] rounded text-xs">
                 <button
                   onClick={() => setCurrencyMode("USD")}
-                  className={`px-2 py-1 rounded-l ${currencyMode === "USD" ? "bg-[#2962ff] text-white" : "text-[#888]"}`}
+                  className={`px-2 py-1 rounded-l ${currencyMode === "USD" ? "bg-[#2962ff] text-[var(--foreground)]" : "text-[#888]"}`}
                 >
                   USD
                 </button>
                 <button
                   onClick={() => setCurrencyMode("XLM")}
-                  className={`px-2 py-1 rounded-r ${currencyMode === "XLM" ? "bg-[#2962ff] text-white" : "text-[#888]"}`}
+                  className={`px-2 py-1 rounded-r ${currencyMode === "XLM" ? "bg-[#2962ff] text-[var(--foreground)]" : "text-[#888]"}`}
                 >
                   XLM
                 </button>
               </div>
-              <Camera className="w-4 h-4 text-[#555] hover:text-white cursor-pointer" />
-              <Settings className="w-4 h-4 text-[#555] hover:text-white cursor-pointer" />
+              <Camera className="w-4 h-4 text-[var(--text-muted)] hover:text-[var(--foreground)] cursor-pointer" />
+              <Settings className="w-4 h-4 text-[var(--text-muted)] hover:text-[var(--foreground)] cursor-pointer" />
             </div>
           </div>
 
@@ -378,16 +378,16 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
             <span className="text-[#888]">{token.name}/USD • {timeframe} • PicklePerps</span>
             {displayCandle && (
               <>
-                <span className="text-[#888]">O<span className="text-white ml-1">{formatPrice(displayCandle.open)}</span></span>
+                <span className="text-[#888]">O<span className="text-[var(--foreground)] ml-1">{formatPrice(displayCandle.open)}</span></span>
                 <span className="text-[#888]">H<span className="text-[var(--accent-green)] ml-1">{formatPrice(displayCandle.high)}</span></span>
                 <span className="text-[#888]">L<span className="text-[var(--accent-red)] ml-1">{formatPrice(displayCandle.low)}</span></span>
-                <span className="text-[#888]">C<span className="text-white ml-1">{formatPrice(displayCandle.close)}</span></span>
+                <span className="text-[#888]">C<span className="text-[var(--foreground)] ml-1">{formatPrice(displayCandle.close)}</span></span>
                 <span className={priceChange >= 0 ? "text-[var(--accent-green)]" : "text-[var(--accent-red)]"}>
                   {priceChange >= 0 ? "+" : ""}{priceChange.toFixed(2)}%
                 </span>
               </>
             )}
-            <span className="text-[#888] ml-auto">Vol<span className="text-white ml-1">{displayCandle ? formatPrice(displayCandle.volume) : "0"}</span></span>
+            <span className="text-[#888] ml-auto">Vol<span className="text-[var(--foreground)] ml-1">{displayCandle ? formatPrice(displayCandle.volume) : "0"}</span></span>
           </div>
 
           {/* Chart Container */}
@@ -399,7 +399,7 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
                   key={tool.name}
                   onClick={() => setSelectedTool(tool.name)}
                   className={`p-2 rounded hover:bg-[var(--card-bg)] transition-colors ${
-                    selectedTool === tool.name ? "bg-[var(--card-bg)] text-white" : "text-[#555]"
+                    selectedTool === tool.name ? "bg-[var(--card-bg)] text-[var(--foreground)]" : "text-[var(--text-muted)]"
                   }`}
                   title={tool.name}
                 >
@@ -407,7 +407,7 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
                 </button>
               ))}
               <div className="flex-1" />
-              <button className="p-2 rounded hover:bg-[var(--card-bg)] text-[#555]" title="More">
+              <button className="p-2 rounded hover:bg-[var(--card-bg)] text-[var(--text-muted)]" title="More">
                 <MoreHorizontal className="w-4 h-4" />
               </button>
             </div>
@@ -466,7 +466,7 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
                     }}
                   >
                     <span
-                      className="absolute right-0 -top-2.5 text-[10px] px-2 py-0.5 rounded text-white font-medium"
+                      className="absolute right-0 -top-2.5 text-[10px] px-2 py-0.5 rounded text-[var(--foreground)] font-medium"
                       style={{ backgroundColor: currentCandle.close >= currentCandle.open ? 'var(--accent-green)' : '#ff4757' }}
                     >
                       {formatPrice(currentCandle.close)}
@@ -486,7 +486,7 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
                   <div className="absolute inset-0 flex items-center justify-center bg-[var(--sidebar-bg)]/80 z-20">
                     <div className="text-center">
                       <div className="text-[#888] text-sm mb-2">No trading data available</div>
-                      <div className="text-[#555] text-xs">Price data will appear after first trade</div>
+                      <div className="text-[var(--text-muted)] text-xs">Price data will appear after first trade</div>
                     </div>
                   </div>
                 )}
@@ -774,7 +774,7 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`text-xs pb-1 ${activeTab === tab ? "text-white border-b-2 border-[#2962ff]" : "text-[#555] hover:text-white"}`}
+                  className={`text-xs pb-1 ${activeTab === tab ? "text-[var(--foreground)] border-b-2 border-[#2962ff]" : "text-[var(--text-muted)] hover:text-[var(--foreground)]"}`}
                 >
                   {tab}
                 </button>
@@ -783,13 +783,13 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
             <div className="flex-1 overflow-y-auto">
               {activeTab === "Trades" && (
                 <div className="flex flex-col items-center justify-center h-full py-8">
-                  <div className="text-[#555] text-sm mb-2">Recent Trades</div>
+                  <div className="text-[var(--text-muted)] text-sm mb-2">Recent Trades</div>
                   <div className="text-[#888] text-xs">Trade history will appear here after positions are opened</div>
                 </div>
               )}
               {activeTab === "Top Traders" && (
                 <div className="flex flex-col items-center justify-center h-full py-8">
-                  <div className="text-[#555] text-sm mb-2">Top Traders</div>
+                  <div className="text-[var(--text-muted)] text-sm mb-2">Top Traders</div>
                   <div className="text-[#888] text-xs">Leaderboard coming soon</div>
                 </div>
               )}
@@ -814,12 +814,12 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
                   }}
                 />
               )}
-              {activeTab === "Order Book" && <div className="flex items-center justify-center h-full text-[#555] text-sm py-8">Order book coming soon</div>}
+              {activeTab === "Order Book" && <div className="flex items-center justify-center h-full text-[var(--text-muted)] text-sm py-8">Order book coming soon</div>}
               {activeTab === "Info" && (
                 <div className="p-4 text-xs space-y-2">
-                  <div className="flex justify-between"><span className="text-[#555]">Contract</span><span className="text-[var(--accent-green)]">{token.walletAddress || "0x1234...5678"}</span></div>
-                  <div className="flex justify-between"><span className="text-[#555]">Holders</span><span className="text-white">{token.holders || 0}</span></div>
-                  <div className="flex justify-between"><span className="text-[#555]">Transactions</span><span className="text-white">{token.transactions || 0}</span></div>
+                  <div className="flex justify-between"><span className="text-[var(--text-muted)]">Contract</span><span className="text-[var(--accent-green)]">{token.walletAddress || "0x1234...5678"}</span></div>
+                  <div className="flex justify-between"><span className="text-[var(--text-muted)]">Holders</span><span className="text-[var(--foreground)]">{token.holders || 0}</span></div>
+                  <div className="flex justify-between"><span className="text-[var(--text-muted)]">Transactions</span><span className="text-[var(--foreground)]">{token.transactions || 0}</span></div>
                 </div>
               )}
             </div>
@@ -836,7 +836,7 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
               className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
                 tradingMode === "spot"
                   ? "bg-[var(--accent-green)] text-black"
-                  : "text-[#555] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
+                  : "text-[var(--text-muted)] hover:text-[var(--foreground)] disabled:opacity-30 disabled:cursor-not-allowed"
               }`}
             >
               Spot
@@ -845,8 +845,8 @@ export function TokenDetailPage({ token, onBack }: TokenDetailPageProps) {
               onClick={() => setTradingMode("perps")}
               className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
                 tradingMode === "perps"
-                  ? "bg-[#2962ff] text-white"
-                  : "text-[#555] hover:text-white"
+                  ? "bg-[#2962ff] text-[var(--foreground)]"
+                  : "text-[var(--text-muted)] hover:text-[var(--foreground)]"
               }`}
             >
               Perps

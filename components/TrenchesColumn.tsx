@@ -44,19 +44,19 @@ export const TrenchesColumn = memo(function TrenchesColumn({ title, subtitle, to
         <div className="flex items-center justify-between gap-3 w-full">
           {/* Search */}
           <div className={`flex items-center bg-transparent border border-[var(--accent-primary)]/30 rounded-lg px-3 py-1.5 gap-2 w-[200px] text-[var(--text-muted)]`}>
-            <Search className="w-4 h-4 text-[#555]" />
+            <Search className="w-4 h-4 text-[var(--text-muted)]" />
             <input
               type="text"
               value={searchQuery}
               onChange={handleSearchChange}
               placeholder="Search..."
-              className="bg-transparent text-sm text-white placeholder-[#555] outline-none w-full"
+              className="bg-transparent text-sm text-[var(--foreground)] placeholder-[#555] outline-none w-full"
             />
           </div>
 
           {/* Title */}
           <div className="flex items-center gap-2">
-            <span className="text-white font-semibold text-sm whitespace-nowrap">{title}</span>
+            <span className="text-[var(--foreground)] font-semibold text-sm whitespace-nowrap">{title}</span>
             {subtitle && <span className="text-[#666] text-xs whitespace-nowrap">{subtitle}</span>}
           </div>
         </div>
@@ -65,7 +65,7 @@ export const TrenchesColumn = memo(function TrenchesColumn({ title, subtitle, to
       {/* Token List */}
       <div className="flex-1 overflow-y-auto px-2 py-2 space-y-1.5 scrollbar-thin scrollbar-thumb-[#333] scrollbar-track-transparent">
         {filteredTokens.length === 0 ? (
-          <div className="flex items-center justify-center h-full text-[#555] text-sm">
+          <div className="flex items-center justify-center h-full text-[var(--text-muted)] text-sm">
             {searchQuery ? `No results for "${searchQuery}"` : "No tokens found"}
           </div>
         ) : (

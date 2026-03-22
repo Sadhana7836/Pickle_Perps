@@ -27,7 +27,7 @@ function WalletButton() {
       <button
         onClick={connect}
         disabled={isConnecting}
-        className="flex items-center gap-1.5 bg-[var(--card-bg)] hover:bg-[var(--hover-bg)] border border-[var(--card-border)] hover:border-[var(--accent-primary)]/50 text-white text-xs px-3 py-1.5 rounded-lg transition-all"
+        className="flex items-center gap-1.5 bg-[var(--card-bg)] hover:bg-[var(--hover-bg)] border border-[var(--card-border)] hover:border-[var(--accent-primary)]/50 text-[var(--foreground)] text-xs px-3 py-1.5 rounded-lg transition-all"
       >
         <Wallet className="w-3.5 h-3.5 text-[var(--accent-primary)]" />
         <span>{isConnecting ? 'Connecting...' : 'Connect'}</span>
@@ -45,7 +45,7 @@ function WalletButton() {
           {walletAddress?.charAt(0)?.toUpperCase() || "S"}
         </span>
       </div>
-      <span className="text-[#888] group-hover:text-white transition-colors">
+      <span className="text-[#888] group-hover:text-[var(--foreground)] transition-colors">
         {walletAddress ? `${walletAddress.slice(0, 4)}...${walletAddress.slice(-4)}` : ''}
       </span>
       <div className="w-px h-3 bg-[var(--card-border)]" />
@@ -72,7 +72,7 @@ function ThemeSwitcher() {
     <div ref={ref} className="relative hidden sm:block">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="p-1.5 rounded-lg hover:bg-[var(--card-bg)] text-[var(--text-muted)] hover:text-white transition-colors"
+        className="p-1.5 rounded-lg hover:bg-[var(--card-bg)] text-[var(--text-muted)] hover:text-[var(--foreground)] transition-colors"
         title="Switch theme"
       >
         <Palette className="w-4 h-4" />
@@ -87,8 +87,8 @@ function ThemeSwitcher() {
               onClick={() => { setTheme(t.id as ThemeId); setOpen(false); }}
               className={`flex items-center gap-2.5 w-full px-2 py-1.5 rounded-lg text-xs transition-colors ${
                 currentTheme === t.id
-                  ? "bg-[var(--hover-bg)] text-white"
-                  : "text-[var(--text-muted)] hover:bg-[var(--hover-bg)] hover:text-white"
+                  ? "bg-[var(--hover-bg)] text-[var(--foreground)]"
+                  : "text-[var(--text-muted)] hover:bg-[var(--hover-bg)] hover:text-[var(--foreground)]"
               }`}
             >
               <span
@@ -143,7 +143,7 @@ export const Navbar = memo(function Navbar() {
             priority
           />
           {/* <span className="rounded-full bg-[var(--accent-primary)] text-sm p-2 text-black font-bold aspect-square">PP</span> */}
-          <span className="text-white text-base lg:text-lg font-bold hidden sm:inline">PicklePerps</span>
+          <span className="text-[var(--foreground)] text-base lg:text-lg font-bold hidden sm:inline">PicklePerps</span>
         </Link>
 
         {/* Nav Links - hidden on mobile, visible on larger screens */}
@@ -175,19 +175,19 @@ export const Navbar = memo(function Navbar() {
             value={searchQuery}
             onChange={handleSearchChange}
             placeholder="Search..."
-            className="bg-transparent text-xs sm:text-sm text-white placeholder-[var(--text-muted)] outline-none w-full min-w-0"
+            className="bg-transparent text-xs sm:text-sm text-[var(--foreground)] placeholder-[var(--text-muted)] outline-none w-full min-w-0"
           />
           {searchQuery ? (
-            <button onClick={handleClearSearch} className="text-[#888] hover:text-white flex-shrink-0">
+            <button onClick={handleClearSearch} className="text-[#888] hover:text-[var(--foreground)] flex-shrink-0">
               <X className="w-3.5 h-3.5" />
             </button>
           ) : (
-            <span className="text-[#555] text-xs hidden sm:inline">/</span>
+            <span className="text-[var(--text-muted)] text-xs hidden sm:inline">/</span>
           )}
         </div>
 
         {/* Cooking Icon - hidden on mobile
-        <div className="hidden md:flex items-center gap-1 text-[var(--text-muted)] hover:text-white cursor-pointer">
+        <div className="hidden md:flex items-center gap-1 text-[var(--text-muted)] hover:text-[var(--foreground)] cursor-pointer">
           <Flame className="w-4 h-4" />
           <span className="text-xs text-[#ff6b35]">Cooking</span>
         </div>
@@ -195,7 +195,7 @@ export const Navbar = memo(function Navbar() {
         {/* APP Button - hidden on mobile */}
         {/* <button
           onClick={() => setShowAppModal(true)}
-          className="hidden sm:flex items-center gap-1 bg-[var(--card-bg)] rounded px-2 py-1 text-xs text-[var(--text-muted)] hover:text-white hover:bg-[var(--hover-bg)] transition-colors"
+          className="hidden sm:flex items-center gap-1 bg-[var(--card-bg)] rounded px-2 py-1 text-xs text-[var(--text-muted)] hover:text-[var(--foreground)] hover:bg-[var(--hover-bg)] transition-colors"
         >
           <span className="text-[var(--accent-green)]">📱</span>
           <span className="hidden md:inline">APP</span>
@@ -204,7 +204,7 @@ export const Navbar = memo(function Navbar() {
 
         {/* Icons - hidden on small screens */}
         {/* <Star className="w-4 h-4 text-[var(--text-muted)] hover:text-yellow-400 cursor-pointer hidden sm:block" />
-        <Settings className="w-4 h-4 text-[var(--text-muted)] hover:text-white cursor-pointer hidden sm:block" /> */}
+        <Settings className="w-4 h-4 text-[var(--text-muted)] hover:text-[var(--foreground)] cursor-pointer hidden sm:block" /> */}
 
         {/* Theme Switcher */}
         <ThemeSwitcher />
@@ -225,14 +225,14 @@ export const Navbar = memo(function Navbar() {
           >
             <button
               onClick={() => setShowAppModal(false)}
-              className="absolute top-2 right-2 p-1 rounded-lg hover:bg-[var(--card-border)] text-[#888] hover:text-white transition-colors"
+              className="absolute top-2 right-2 p-1 rounded-lg hover:bg-[var(--card-border)] text-[#888] hover:text-[var(--foreground)] transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
 
             <div className="flex flex-col items-center text-center">
 
-              <h3 className="text-white text-sm font-bold mb-3">PicklePerps Mobile</h3>
+              <h3 className="text-[var(--foreground)] text-sm font-bold mb-3">PicklePerps Mobile</h3>
 
               <div className="bg-white p-2 rounded-lg mb-3">
                 <svg viewBox="0 0 37 37" className="w-40 h-40">

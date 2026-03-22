@@ -82,7 +82,7 @@ function ServiceRow({ service }: { service: ServiceStatus }) {
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <span className="text-white font-medium">{service.name}</span>
+          <span className="text-[var(--foreground)] font-medium">{service.name}</span>
           {service.contractAddress && (
             <a
               href={`https://stellar.expert/explorer/testnet/contract/${service.contractAddress}`}
@@ -120,8 +120,8 @@ export default function MonitorPage() {
         <div
           className={`rounded-lg p-4 mb-6 text-center font-medium text-lg ${
             allOperational
-              ? "bg-[var(--accent-primary)] text-white"
-              : "bg-[var(--accent-red)] text-white"
+              ? "bg-[var(--accent-primary)] text-[var(--foreground)]"
+              : "bg-[var(--accent-red)] text-[var(--foreground)]"
           }`}
         >
           {allOperational ? "All Systems Operational" : "Some Systems Experiencing Issues"}

@@ -61,7 +61,7 @@ function RWAPositionCard({
     return (
       <div className="bg-[var(--card-bg)] rounded-lg p-3 border border-[var(--card-border)]">
         <div className="flex items-center justify-center py-2">
-          <Loader2 className="w-4 h-4 animate-spin text-[#555]" />
+          <Loader2 className="w-4 h-4 animate-spin text-[var(--text-muted)]" />
         </div>
       </div>
     );
@@ -97,23 +97,23 @@ function RWAPositionCard({
 
       <div className="space-y-1.5 text-xs">
         <div className="flex justify-between">
-          <span className="text-[#555]">Size</span>
-          <span className="text-white">${parseFloat(position.size).toFixed(2)}</span>
+          <span className="text-[var(--text-muted)]">Size</span>
+          <span className="text-[var(--foreground)]">${parseFloat(position.size).toFixed(2)}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-[#555]">Margin</span>
-          <span className="text-white">${parseFloat(position.margin).toFixed(4)}</span>
+          <span className="text-[var(--text-muted)]">Margin</span>
+          <span className="text-[var(--foreground)]">${parseFloat(position.margin).toFixed(4)}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-[#555]">Entry Price</span>
-          <span className="text-white">${position.entryPrice}</span>
+          <span className="text-[var(--text-muted)]">Entry Price</span>
+          <span className="text-[var(--foreground)]">${position.entryPrice}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-[#555]">Liquidation Price</span>
+          <span className="text-[var(--text-muted)]">Liquidation Price</span>
           <span className="text-[var(--accent-red)]">${liquidationPrice || "N/A"}</span>
         </div>
         <div className="flex justify-between border-t border-[#222] pt-1.5 mt-1.5">
-          <span className="text-[#555]">Unrealized PnL</span>
+          <span className="text-[var(--text-muted)]">Unrealized PnL</span>
           {pnl ? (
             <span className={pnl.isProfit ? 'text-[var(--accent-green)]' : 'text-[var(--accent-red)]'}>
               {pnl.isProfit ? '+' : '-'}${parseFloat(pnl.value).toFixed(4)}
@@ -127,7 +127,7 @@ function RWAPositionCard({
       <button
         onClick={handleClose}
         disabled={isClosing}
-        className="w-full mt-3 py-2 bg-[var(--accent-red)] hover:bg-[#ff5a67] disabled:opacity-50 text-white text-xs font-bold rounded transition-colors flex items-center justify-center gap-2"
+        className="w-full mt-3 py-2 bg-[var(--accent-red)] hover:bg-[#ff5a67] disabled:opacity-50 text-[var(--foreground)] text-xs font-bold rounded transition-colors flex items-center justify-center gap-2"
       >
         {isClosing ? (
           <>
@@ -320,7 +320,7 @@ export function RWADetailPage({ asset, onBack }: RWADetailPageProps) {
       <div className="flex items-center justify-between px-4 py-2 border-b border-[var(--card-bg)] bg-[var(--background)]">
         <div className="flex items-center gap-3">
           <button onClick={onBack} className="p-1.5 hover:bg-[var(--card-bg)] rounded-lg transition-colors">
-            <ArrowLeft className="w-5 h-5 text-[#888] hover:text-white" />
+            <ArrowLeft className="w-5 h-5 text-[#888] hover:text-[var(--foreground)]" />
           </button>
           <div className="w-10 h-10 rounded-lg bg-[var(--card-bg)] flex items-center justify-center border border-[#333] overflow-hidden">
             <Image
@@ -334,13 +334,13 @@ export function RWADetailPage({ asset, onBack }: RWADetailPageProps) {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-white font-bold">{asset.name}</span>
+              <span className="text-[var(--foreground)] font-bold">{asset.name}</span>
               <span className={`text-xs px-1.5 py-0.5 rounded ${category.bgColor} ${category.color}`}>
                 {category.label}
               </span>
               <span className="text-[#ffd700] text-xs bg-[#ffd700]/10 px-1.5 py-0.5 rounded">RWA</span>
-              <Globe className="w-3.5 h-3.5 text-[#555] hover:text-white cursor-pointer" />
-              <Star className="w-3.5 h-3.5 text-[#555] hover:text-yellow-400 cursor-pointer" />
+              <Globe className="w-3.5 h-3.5 text-[var(--text-muted)] hover:text-[var(--foreground)] cursor-pointer" />
+              <Star className="w-3.5 h-3.5 text-[var(--text-muted)] hover:text-yellow-400 cursor-pointer" />
             </div>
             <div className="flex items-center gap-2">
               <span className="text-[#888] text-xs">{asset.symbol}</span>
@@ -353,7 +353,7 @@ export function RWADetailPage({ asset, onBack }: RWADetailPageProps) {
         <div className="flex items-center gap-6">
           <div className="text-right">
             <div className="flex items-center gap-2 justify-end">
-              <p className="text-xl font-bold text-white">${price}</p>
+              <p className="text-xl font-bold text-[var(--foreground)]">${price}</p>
               <div className={`flex items-center gap-0.5 ${isPositive ? 'text-[var(--accent-green)]' : 'text-[var(--accent-red)]'}`}>
                 {isPositive ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
                 <span className="text-sm font-medium">{isPositive ? '+' : ''}{change24h.toFixed(2)}%</span>
@@ -362,9 +362,9 @@ export function RWADetailPage({ asset, onBack }: RWADetailPageProps) {
             <p className="text-[#888] text-xs">24h Change</p>
           </div>
           <div className="flex items-center gap-4 text-xs">
-            <div><span className="text-[#555]">24h High</span><p className="text-[var(--accent-green)]">${(parseFloat(price) * 1.02).toFixed(2)}</p></div>
-            <div><span className="text-[#555]">24h Low</span><p className="text-[var(--accent-red)]">${(parseFloat(price) * 0.98).toFixed(2)}</p></div>
-            <div><span className="text-[#555]">Max Lev</span><p className="text-white">{asset.maxLeverage}x</p></div>
+            <div><span className="text-[var(--text-muted)]">24h High</span><p className="text-[var(--accent-green)]">${(parseFloat(price) * 1.02).toFixed(2)}</p></div>
+            <div><span className="text-[var(--text-muted)]">24h Low</span><p className="text-[var(--accent-red)]">${(parseFloat(price) * 0.98).toFixed(2)}</p></div>
+            <div><span className="text-[var(--text-muted)]">Max Lev</span><p className="text-[var(--foreground)]">{asset.maxLeverage}x</p></div>
           </div>
         </div>
       </div>
@@ -383,7 +383,7 @@ export function RWADetailPage({ asset, onBack }: RWADetailPageProps) {
                     key={tf}
                     onClick={() => setTimeframe(tf)}
                     className={`px-2 py-1 text-xs rounded ${
-                      timeframe === tf ? "bg-[#2962ff] text-white" : "text-[#888] hover:text-white hover:bg-[var(--card-bg)]"
+                      timeframe === tf ? "bg-[#2962ff] text-[var(--foreground)]" : "text-[#888] hover:text-[var(--foreground)] hover:bg-[var(--card-bg)]"
                     }`}
                   >
                     {tf}
@@ -394,31 +394,31 @@ export function RWADetailPage({ asset, onBack }: RWADetailPageProps) {
               <div className="flex items-center bg-[var(--card-bg)] rounded text-xs">
                 <button
                   onClick={() => setChartType("candles")}
-                  className={`px-2 py-1 rounded-l flex items-center gap-1 ${chartType === "candles" ? "bg-[#2962ff] text-white" : "text-[#888]"}`}
+                  className={`px-2 py-1 rounded-l flex items-center gap-1 ${chartType === "candles" ? "bg-[#2962ff] text-[var(--foreground)]" : "text-[#888]"}`}
                 >
                   Candles
                 </button>
                 <button
                   onClick={() => setChartType("graph")}
-                  className={`px-2 py-1 rounded-r flex items-center gap-1 ${chartType === "graph" ? "bg-[#2962ff] text-white" : "text-[#888]"}`}
+                  className={`px-2 py-1 rounded-r flex items-center gap-1 ${chartType === "graph" ? "bg-[#2962ff] text-[var(--foreground)]" : "text-[#888]"}`}
                 >
                   Graph
                 </button>
               </div>
-              <button className="text-[#888] hover:text-white text-xs">Indicators</button>
+              <button className="text-[#888] hover:text-[var(--foreground)] text-xs">Indicators</button>
             </div>
 
             <div className="flex items-center gap-2">
               <div className="flex items-center bg-[var(--card-bg)] rounded text-xs">
                 <button
                   onClick={() => setPriceMode("Price")}
-                  className={`px-2 py-1 rounded-l ${priceMode === "Price" ? "bg-[#2962ff] text-white" : "text-[#888]"}`}
+                  className={`px-2 py-1 rounded-l ${priceMode === "Price" ? "bg-[#2962ff] text-[var(--foreground)]" : "text-[#888]"}`}
                 >
                   Price
                 </button>
                 <button
                   onClick={() => setPriceMode("MCap")}
-                  className={`px-2 py-1 rounded-r ${priceMode === "MCap" ? "bg-[#2962ff] text-white" : "text-[#888]"}`}
+                  className={`px-2 py-1 rounded-r ${priceMode === "MCap" ? "bg-[#2962ff] text-[var(--foreground)]" : "text-[#888]"}`}
                 >
                   MCap
                 </button>
@@ -426,19 +426,19 @@ export function RWADetailPage({ asset, onBack }: RWADetailPageProps) {
               <div className="flex items-center bg-[var(--card-bg)] rounded text-xs">
                 <button
                   onClick={() => setCurrencyMode("USD")}
-                  className={`px-2 py-1 rounded-l ${currencyMode === "USD" ? "bg-[#2962ff] text-white" : "text-[#888]"}`}
+                  className={`px-2 py-1 rounded-l ${currencyMode === "USD" ? "bg-[#2962ff] text-[var(--foreground)]" : "text-[#888]"}`}
                 >
                   USD
                 </button>
                 <button
                   onClick={() => setCurrencyMode("ETH")}
-                  className={`px-2 py-1 rounded-r ${currencyMode === "ETH" ? "bg-[#2962ff] text-white" : "text-[#888]"}`}
+                  className={`px-2 py-1 rounded-r ${currencyMode === "ETH" ? "bg-[#2962ff] text-[var(--foreground)]" : "text-[#888]"}`}
                 >
                   ETH
                 </button>
               </div>
-              <Camera className="w-4 h-4 text-[#555] hover:text-white cursor-pointer" />
-              <Settings className="w-4 h-4 text-[#555] hover:text-white cursor-pointer" />
+              <Camera className="w-4 h-4 text-[var(--text-muted)] hover:text-[var(--foreground)] cursor-pointer" />
+              <Settings className="w-4 h-4 text-[var(--text-muted)] hover:text-[var(--foreground)] cursor-pointer" />
             </div>
           </div>
 
@@ -447,16 +447,16 @@ export function RWADetailPage({ asset, onBack }: RWADetailPageProps) {
             <span className="text-[#888]">{asset.symbol} • {timeframe} • Pyth Oracle</span>
             {displayCandle && (
               <>
-                <span className="text-[#888]">O<span className="text-white ml-1">{formatPrice(displayCandle.open)}</span></span>
+                <span className="text-[#888]">O<span className="text-[var(--foreground)] ml-1">{formatPrice(displayCandle.open)}</span></span>
                 <span className="text-[#888]">H<span className="text-[var(--accent-green)] ml-1">{formatPrice(displayCandle.high)}</span></span>
                 <span className="text-[#888]">L<span className="text-[var(--accent-red)] ml-1">{formatPrice(displayCandle.low)}</span></span>
-                <span className="text-[#888]">C<span className="text-white ml-1">{formatPrice(displayCandle.close)}</span></span>
+                <span className="text-[#888]">C<span className="text-[var(--foreground)] ml-1">{formatPrice(displayCandle.close)}</span></span>
                 <span className={priceChange >= 0 ? "text-[var(--accent-green)]" : "text-[var(--accent-red)]"}>
                   {priceChange >= 0 ? "+" : ""}{priceChange.toFixed(2)}%
                 </span>
               </>
             )}
-            <span className="text-[#888] ml-auto">Vol<span className="text-white ml-1">{displayCandle ? `$${(displayCandle.volume / 1000000).toFixed(1)}M` : "0"}</span></span>
+            <span className="text-[#888] ml-auto">Vol<span className="text-[var(--foreground)] ml-1">{displayCandle ? `$${(displayCandle.volume / 1000000).toFixed(1)}M` : "0"}</span></span>
           </div>
 
           {/* Chart Container */}
@@ -468,7 +468,7 @@ export function RWADetailPage({ asset, onBack }: RWADetailPageProps) {
                   key={tool.name}
                   onClick={() => setSelectedTool(tool.name)}
                   className={`p-2 rounded hover:bg-[var(--card-bg)] transition-colors ${
-                    selectedTool === tool.name ? "bg-[var(--card-bg)] text-white" : "text-[#555]"
+                    selectedTool === tool.name ? "bg-[var(--card-bg)] text-[var(--foreground)]" : "text-[var(--text-muted)]"
                   }`}
                   title={tool.name}
                 >
@@ -476,7 +476,7 @@ export function RWADetailPage({ asset, onBack }: RWADetailPageProps) {
                 </button>
               ))}
               <div className="flex-1" />
-              <button className="p-2 rounded hover:bg-[var(--card-bg)] text-[#555]" title="More">
+              <button className="p-2 rounded hover:bg-[var(--card-bg)] text-[var(--text-muted)]" title="More">
                 <MoreHorizontal className="w-4 h-4" />
               </button>
             </div>
@@ -517,7 +517,7 @@ export function RWADetailPage({ asset, onBack }: RWADetailPageProps) {
                     }}
                   >
                     <span
-                      className="absolute right-0 -top-2.5 text-[10px] px-2 py-0.5 rounded text-white font-medium"
+                      className="absolute right-0 -top-2.5 text-[10px] px-2 py-0.5 rounded text-[var(--foreground)] font-medium"
                       style={{ backgroundColor: currentCandle.close >= currentCandle.open ? 'var(--accent-green)' : '#ff4757' }}
                     >
                       {formatPrice(currentCandle.close)}
@@ -529,11 +529,11 @@ export function RWADetailPage({ asset, onBack }: RWADetailPageProps) {
                 {isLoading || visibleData.length === 0 ? (
                   <div className="absolute left-10 right-16 top-[5%] flex items-center justify-center" style={{ height: '75%' }}>
                     <div className="text-center">
-                      <Loader2 className="w-8 h-8 animate-spin text-[#555] mx-auto mb-2" />
+                      <Loader2 className="w-8 h-8 animate-spin text-[var(--text-muted)] mx-auto mb-2" />
                       <p className="text-[#888] text-sm">
                         {isLoading ? "Connecting to Pyth Oracle..." : "Waiting for price data..."}
                       </p>
-                      <p className="text-[#555] text-xs mt-1">Candles will build as prices stream in</p>
+                      <p className="text-[var(--text-muted)] text-xs mt-1">Candles will build as prices stream in</p>
                     </div>
                   </div>
                 ) : chartType === "candles" ? (
@@ -662,7 +662,7 @@ export function RWADetailPage({ asset, onBack }: RWADetailPageProps) {
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`text-xs pb-1 ${activeTab === tab ? "text-white border-b-2 border-[#2962ff]" : "text-[#555] hover:text-white"}`}
+                  className={`text-xs pb-1 ${activeTab === tab ? "text-[var(--foreground)] border-b-2 border-[#2962ff]" : "text-[var(--text-muted)] hover:text-[var(--foreground)]"}`}
                 >
                   {tab}
                 </button>
@@ -687,7 +687,7 @@ export function RWADetailPage({ asset, onBack }: RWADetailPageProps) {
                     </div>
                   ) : (
                     <div className="flex flex-col items-center justify-center h-full py-8">
-                      <div className="text-[#555] text-sm mb-2">Your {asset.name} Positions</div>
+                      <div className="text-[var(--text-muted)] text-sm mb-2">Your {asset.name} Positions</div>
                       <div className="text-[#888] text-xs">No open positions on this asset</div>
                     </div>
                   )}
@@ -695,11 +695,11 @@ export function RWADetailPage({ asset, onBack }: RWADetailPageProps) {
               )}
               {activeTab === "Info" && (
                 <div className="p-4 text-xs space-y-2">
-                  <div className="flex justify-between"><span className="text-[#555]">Asset Type</span><span className={category.color}>{category.label}</span></div>
-                  <div className="flex justify-between"><span className="text-[#555]">Symbol</span><span className="text-white">{asset.symbol}</span></div>
-                  <div className="flex justify-between"><span className="text-[#555]">Oracle</span><span className="text-[#a855f7]">Pyth Network</span></div>
-                  <div className="flex justify-between"><span className="text-[#555]">Max Leverage</span><span className="text-white">{asset.maxLeverage}x</span></div>
-                  <div className="flex justify-between"><span className="text-[#555]">Trading Fee</span><span className="text-white">0.1%</span></div>
+                  <div className="flex justify-between"><span className="text-[var(--text-muted)]">Asset Type</span><span className={category.color}>{category.label}</span></div>
+                  <div className="flex justify-between"><span className="text-[var(--text-muted)]">Symbol</span><span className="text-[var(--foreground)]">{asset.symbol}</span></div>
+                  <div className="flex justify-between"><span className="text-[var(--text-muted)]">Oracle</span><span className="text-[#a855f7]">Pyth Network</span></div>
+                  <div className="flex justify-between"><span className="text-[var(--text-muted)]">Max Leverage</span><span className="text-[var(--foreground)]">{asset.maxLeverage}x</span></div>
+                  <div className="flex justify-between"><span className="text-[var(--text-muted)]">Trading Fee</span><span className="text-[var(--foreground)]">0.1%</span></div>
                   <div className="mt-3 pt-3 border-t border-[var(--card-bg)]">
                     <p className="text-[#888]">{asset.description}</p>
                   </div>
@@ -707,10 +707,10 @@ export function RWADetailPage({ asset, onBack }: RWADetailPageProps) {
               )}
               {activeTab === "Market Data" && (
                 <div className="p-4 text-xs space-y-2">
-                  <div className="flex justify-between"><span className="text-[#555]">Current Price</span><span className="text-white">${price}</span></div>
-                  <div className="flex justify-between"><span className="text-[#555]">24h Change</span><span className={isPositive ? "text-[var(--accent-green)]" : "text-[var(--accent-red)]"}>{isPositive ? '+' : ''}{change24h.toFixed(2)}%</span></div>
-                  <div className="flex justify-between"><span className="text-[#555]">Price Source</span><span className="text-[#a855f7]">Pyth Oracle</span></div>
-                  <div className="flex justify-between"><span className="text-[#555]">Update Frequency</span><span className="text-white">Real-time</span></div>
+                  <div className="flex justify-between"><span className="text-[var(--text-muted)]">Current Price</span><span className="text-[var(--foreground)]">${price}</span></div>
+                  <div className="flex justify-between"><span className="text-[var(--text-muted)]">24h Change</span><span className={isPositive ? "text-[var(--accent-green)]" : "text-[var(--accent-red)]"}>{isPositive ? '+' : ''}{change24h.toFixed(2)}%</span></div>
+                  <div className="flex justify-between"><span className="text-[var(--text-muted)]">Price Source</span><span className="text-[#a855f7]">Pyth Oracle</span></div>
+                  <div className="flex justify-between"><span className="text-[var(--text-muted)]">Update Frequency</span><span className="text-[var(--foreground)]">Real-time</span></div>
                 </div>
               )}
             </div>

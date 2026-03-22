@@ -49,7 +49,7 @@ export const MainContent = memo(function MainContent({ onTokenSelect, onRWASelec
           <button
             onClick={handleRefresh}
             disabled={isLoading || isRefreshing}
-            className="flex items-center gap-1.5 text-xs text-[#888] hover:text-white transition-colors px-2 py-1 rounded hover:bg-[var(--card-bg)] disabled:opacity-50"
+            className="flex items-center gap-1.5 text-xs text-[#888] hover:text-[var(--foreground)] transition-colors px-2 py-1 rounded hover:bg-[var(--card-bg)] disabled:opacity-50"
             title="Refresh tokens"
           >
             <RefreshCw className={`w-4 h-4 ${isRefreshing ? 'animate-spin' : ''}`} />
@@ -66,8 +66,8 @@ export const MainContent = memo(function MainContent({ onTokenSelect, onRWASelec
               <div className="w-12 h-12 rounded-full bg-[var(--accent-red)]/10 flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">⚠️</span>
               </div>
-              <p className="text-white font-medium mb-2">Connection Error</p>
-              <p className="text-[#555] text-sm mb-4">Failed to load tokens. Please check your connection.</p>
+              <p className="text-[var(--foreground)] font-medium mb-2">Connection Error</p>
+              <p className="text-[var(--text-muted)] text-sm mb-4">Failed to load tokens. Please check your connection.</p>
               <button
                 onClick={handleRefresh}
                 className="px-4 py-2 bg-[var(--accent-green)] hover:bg-[var(--accent-green)] text-black text-sm font-medium rounded-lg transition-colors"

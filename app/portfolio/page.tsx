@@ -36,7 +36,7 @@ const HoldingCard = memo(function HoldingCard({ holding }: { holding: TokenHoldi
             )}
           </div>
           <div>
-            <p className="text-white font-medium text-sm">{holding.symbol}</p>
+            <p className="text-[var(--foreground)] font-medium text-sm">{holding.symbol}</p>
             <p className="text-[var(--text-muted)] text-xs">{holding.name}</p>
           </div>
         </div>
@@ -48,7 +48,7 @@ const HoldingCard = memo(function HoldingCard({ holding }: { holding: TokenHoldi
       <div className="space-y-2 text-sm">
         <div className="flex justify-between">
           <span className="text-[var(--text-muted)]">Balance</span>
-          <span className="text-white">{holding.balanceFormatted}</span>
+          <span className="text-[var(--foreground)]">{holding.balanceFormatted}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-[var(--text-muted)]">Value</span>
@@ -57,11 +57,11 @@ const HoldingCard = memo(function HoldingCard({ holding }: { holding: TokenHoldi
       </div>
 
       <div className="flex items-center justify-between mt-3 pt-3 border-t border-[var(--card-bg)]">
-        <button onClick={copyAddress} className="flex items-center gap-1 text-[var(--text-muted)] text-xs hover:text-white transition-colors">
+        <button onClick={copyAddress} className="flex items-center gap-1 text-[var(--text-muted)] text-xs hover:text-[var(--foreground)] transition-colors">
           {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
           {holding.address.slice(0, 6)}...{holding.address.slice(-4)}
         </button>
-        <a href={`https://stellar.expert/explorer/testnet/contract/${holding.address}`} target="_blank" rel="noopener noreferrer" className="text-[var(--text-muted)] hover:text-white">
+        <a href={`https://stellar.expert/explorer/testnet/contract/${holding.address}`} target="_blank" rel="noopener noreferrer" className="text-[var(--text-muted)] hover:text-[var(--foreground)]">
           <ExternalLink className="w-3 h-3" />
         </a>
       </div>
@@ -91,7 +91,7 @@ const PositionCard = memo(function PositionCard({ position }: { position: Portfo
             )}
           </div>
           <div>
-            <p className="text-white font-medium text-sm">{position.tokenSymbol}</p>
+            <p className="text-[var(--foreground)] font-medium text-sm">{position.tokenSymbol}</p>
             <p className="text-[var(--text-muted)] text-xs">{position.tokenName}</p>
           </div>
         </div>
@@ -103,17 +103,17 @@ const PositionCard = memo(function PositionCard({ position }: { position: Portfo
         <span className={`text-xs font-medium px-2 py-1 rounded ${position.isLong ? "bg-[var(--accent-green)]/10 text-[var(--accent-green)]" : "bg-[var(--accent-red)]/10 text-[var(--accent-red)]"}`}>
           {position.isLong ? "LONG" : "SHORT"}
         </span>
-        <span className="text-white text-sm">{position.leverage}x</span>
+        <span className="text-[var(--foreground)] text-sm">{position.leverage}x</span>
       </div>
 
       <div className="grid grid-cols-2 gap-2 text-xs mb-3">
         <div>
           <p className="text-[var(--text-muted)]">Size</p>
-          <p className="text-white">${parseFloat(position.size).toFixed(2)}</p>
+          <p className="text-[var(--foreground)]">${parseFloat(position.size).toFixed(2)}</p>
         </div>
         <div>
           <p className="text-[var(--text-muted)]">Entry</p>
-          <p className="text-white">${position.entryPrice.toFixed(6)}</p>
+          <p className="text-[var(--foreground)]">${position.entryPrice.toFixed(6)}</p>
         </div>
       </div>
 
@@ -152,16 +152,16 @@ const TransactionRow = memo(function TransactionRow({ tx }: { tx: Transaction })
           {tx.type === "buy" ? <TrendingUp className="w-4 h-4 text-[var(--accent-green)]" /> : <TrendingDown className="w-4 h-4 text-[var(--accent-red)]" />}
         </div>
         <div>
-          <p className="text-white text-sm">{tx.type === "buy" ? "Bought" : "Sold"} <span className="font-medium">{tx.tokenSymbol}</span></p>
+          <p className="text-[var(--foreground)] text-sm">{tx.type === "buy" ? "Bought" : "Sold"} <span className="font-medium">{tx.tokenSymbol}</span></p>
           <p className="text-[var(--text-muted)] text-xs">{new Date(tx.timestamp).toLocaleDateString()}</p>
         </div>
       </div>
       <div className="flex items-center gap-3">
         <div className="text-right">
-          <p className="text-white text-sm">{parseFloat(tx.amount).toFixed(2)}</p>
+          <p className="text-[var(--foreground)] text-sm">{parseFloat(tx.amount).toFixed(2)}</p>
           <p className="text-[var(--text-muted)] text-xs">{tx.value.toFixed(4)} XLM</p>
         </div>
-        <a href={`https://stellar.expert/explorer/testnet/tx/${tx.txHash}`} target="_blank" rel="noopener noreferrer" className="text-[var(--text-muted)] hover:text-white">
+        <a href={`https://stellar.expert/explorer/testnet/tx/${tx.txHash}`} target="_blank" rel="noopener noreferrer" className="text-[var(--text-muted)] hover:text-[var(--foreground)]">
           <ExternalLink className="w-3 h-3" />
         </a>
       </div>
@@ -176,7 +176,7 @@ const CopyPositionCard = memo(function CopyPositionCard({ position }: { position
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
           <Users className="w-4 h-4 text-[var(--accent-green)]" />
-          <span className="text-white text-sm">Copy Trade</span>
+          <span className="text-[var(--foreground)] text-sm">Copy Trade</span>
         </div>
         <span className={`text-xs px-2 py-1 rounded ${position.isRWA ? "bg-blue-600/10 text-blue-500" : "bg-purple-600/10 text-purple-500"}`}>
           {position.isRWA ? "RWA" : "Token"}
@@ -186,13 +186,13 @@ const CopyPositionCard = memo(function CopyPositionCard({ position }: { position
       <div className="space-y-2 text-xs mb-3">
         <div className="flex justify-between">
           <span className="text-[var(--text-muted)]">Leader</span>
-          <span className="text-white font-mono">
+          <span className="text-[var(--foreground)] font-mono">
             {position.leader.slice(0, 6)}...{position.leader.slice(-4)}
           </span>
         </div>
         <div className="flex justify-between">
           <span className="text-[var(--text-muted)]">Your Margin</span>
-          <span className="text-white">{parseFloat(position.followerMargin).toFixed(4)} XLM</span>
+          <span className="text-[var(--foreground)]">{parseFloat(position.followerMargin).toFixed(4)} XLM</span>
         </div>
         <div className="flex justify-between">
           <span className="text-[var(--text-muted)]">Leader Margin</span>
@@ -222,7 +222,7 @@ export default function PortfolioPage() {
             <div className="w-14 h-14 rounded-full bg-[var(--sidebar-bg)] border border-[var(--card-bg)] flex items-center justify-center mx-auto mb-4">
               <Wallet className="w-6 h-6 text-[var(--text-muted)]" />
             </div>
-            <h2 className="text-white text-lg font-medium mb-1">Connect Wallet</h2>
+            <h2 className="text-[var(--foreground)] text-lg font-medium mb-1">Connect Wallet</h2>
             <p className="text-[var(--text-muted)] text-sm">Connect your wallet to view portfolio</p>
           </div>
         </div>
@@ -237,7 +237,7 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-3 gap-4 mb-6">
             <div className="bg-[var(--sidebar-bg)] border border-[var(--card-bg)] rounded-lg p-4">
               <p className="text-[var(--text-muted)] text-xs mb-1">Total Value</p>
-              <p className="text-xl font-semibold text-white">${totalValue.toFixed(4)}</p>
+              <p className="text-xl font-semibold text-[var(--foreground)]">${totalValue.toFixed(4)}</p>
             </div>
             <div className="bg-[var(--sidebar-bg)] border border-[var(--card-bg)] rounded-lg p-4">
               <p className="text-[var(--text-muted)] text-xs mb-1">Total PnL</p>
@@ -247,7 +247,7 @@ export default function PortfolioPage() {
             </div>
             <div className="bg-[var(--sidebar-bg)] border border-[var(--card-bg)] rounded-lg p-4">
               <p className="text-[var(--text-muted)] text-xs mb-1">Positions</p>
-              <p className="text-xl font-semibold text-white">{positions.length}</p>
+              <p className="text-xl font-semibold text-[var(--foreground)]">{positions.length}</p>
             </div>
           </div>
 
@@ -263,7 +263,7 @@ export default function PortfolioPage() {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as "holdings" | "positions" | "copy" | "history")}
                 className={`flex items-center gap-2 px-4 py-2 rounded text-sm transition-colors ${
-                  activeTab === tab.id ? "bg-[var(--card-bg)] text-white" : "text-[var(--text-muted)] hover:text-white"
+                  activeTab === tab.id ? "bg-[var(--card-bg)] text-[var(--foreground)]" : "text-[var(--text-muted)] hover:text-[var(--foreground)]"
                 }`}
               >
                 <tab.icon className="w-4 h-4" />
@@ -284,7 +284,7 @@ export default function PortfolioPage() {
                 holdings.length === 0 ? (
                   <div className="bg-[var(--sidebar-bg)] border border-[var(--card-bg)] rounded-lg p-10 text-center">
                     <Wallet className="w-10 h-10 text-[var(--border-color)] mx-auto mb-3" />
-                    <p className="text-white font-medium mb-1">No Holdings</p>
+                    <p className="text-[var(--foreground)] font-medium mb-1">No Holdings</p>
                     <p className="text-[var(--text-muted)] text-sm mb-4">Start trading to build your portfolio</p>
                     <Link href="/" className="text-[var(--accent-green)] text-sm hover:underline">Explore Tokens</Link>
                   </div>
@@ -301,7 +301,7 @@ export default function PortfolioPage() {
                 positions.length === 0 ? (
                   <div className="bg-[var(--sidebar-bg)] border border-[var(--card-bg)] rounded-lg p-10 text-center">
                     <Target className="w-10 h-10 text-[var(--border-color)] mx-auto mb-3" />
-                    <p className="text-white font-medium mb-1">No Positions</p>
+                    <p className="text-[var(--foreground)] font-medium mb-1">No Positions</p>
                     <p className="text-[var(--text-muted)] text-sm mb-4">Open a perpetual position to get started</p>
                     <Link href="/" className="text-[var(--accent-green)] text-sm hover:underline">Trade Now</Link>
                   </div>
@@ -318,7 +318,7 @@ export default function PortfolioPage() {
                 copyPositions.length === 0 ? (
                   <div className="bg-[var(--sidebar-bg)] border border-[var(--card-bg)] rounded-lg p-10 text-center">
                     <Users className="w-10 h-10 text-[var(--border-color)] mx-auto mb-3" />
-                    <p className="text-white font-medium mb-1">No Copy Trades</p>
+                    <p className="text-[var(--foreground)] font-medium mb-1">No Copy Trades</p>
                     <p className="text-[var(--text-muted)] text-sm mb-4">Subscribe to a leader to start copy trading</p>
                     <Link href="/copy-trading" className="text-[var(--accent-green)] text-sm hover:underline">Find Leaders</Link>
                   </div>
@@ -336,7 +336,7 @@ export default function PortfolioPage() {
                   {transactions.length === 0 ? (
                     <div className="p-10 text-center">
                       <History className="w-10 h-10 text-[var(--border-color)] mx-auto mb-3" />
-                      <p className="text-white font-medium mb-1">No Transactions</p>
+                      <p className="text-[var(--foreground)] font-medium mb-1">No Transactions</p>
                       <p className="text-[var(--text-muted)] text-sm">Your history will appear here</p>
                     </div>
                   ) : (
