@@ -8,7 +8,8 @@ export type ThemeId =
   | 'violet-storm'
   | 'solar-flare'
   | 'neon-matrix'
-  | 'frost-arctic';
+  | 'frost-arctic'
+  | 'rose-quartz';
 
 export interface Theme {
   id: ThemeId;
@@ -256,6 +257,30 @@ export const themes: Theme[] = [
       '--input-bg': '#0a131c',
       '--sidebar-bg': '#070b1210',
       '--navbar-bg': '#070b12',
+    },
+  },
+  {
+    // Warm rose-pink on deep plum-dark base
+    id: 'rose-quartz',
+    name: 'Rose Quartz',
+    preview: '#f9a8d4',
+    vars: {
+      '--background': '#0e070b',
+      '--foreground': '#f8e8f0',
+      '--card-bg': '#1a0f16',
+      '--card-border': '#2e1a26',
+      '--accent-primary': '#f9a8d4',
+      '--accent-green': '#34d399',
+      '--card-green': '#10b981',
+      '--accent-red': '#fb7185',
+      '--accent-yellow': '#fcd34d',
+      '--text-muted': '#9a7088',
+      '--text-secondary': '#b890a5',
+      '--hover-bg': '#221420',
+      '--border-color': '#3a1e30',
+      '--input-bg': '#130a10',
+      '--sidebar-bg': '#0e070b10',
+      '--navbar-bg': '#0e070b',
     },
   },
 ];
