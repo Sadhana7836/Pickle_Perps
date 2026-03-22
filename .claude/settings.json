@@ -8,7 +8,8 @@
       "Bash(bash deploy.sh pikeperps-deployer)",
       "Bash(npx tsx:*)",
       "Bash(cargo build:*)",
-      "Bash(git -C /home/sounak/programming/stellar/pickleperps/PikePerps ls-files:*)"
+      "Bash(git -C /home/sounak/programming/stellar/pickleperps/PikePerps ls-files:*)",
+      "Bash(git show:*)"
     ]
   }
 }

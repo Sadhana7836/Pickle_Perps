@@ -186,15 +186,15 @@ bash deploy.sh
 
 | Commit | Feedback | Fix Description |
 |--------|----------|-----------------|
-| `baee45a6` | F1 | Filtered out empty/zero-balance tokens from token list |
-| `de40636b` | F2 | Fixed false error message during token creation |
+| `37ccfbd` | F1 | Filtered out empty/zero-balance tokens from token list |
+| `8f93b4c` | F2 | Fixed false error message during token creation |
+| `3ece09f` | F3 | Added UI themes, standardized styling across pages |
+| `b3f1773` | F3 | Fixed minor UI inconsistencies and deployment issues |
 
-### Upcomming Fixes-
+### Upcoming Fixes
 
 | Feedback | Fix Description |
 |----------|-----------------|
-| F3 | Added UI themes, standardized styling across pages |
-| F3 | Fixed minor UI inconsistencies and URL issues |
 | F4 | General bug fixes including loading states |
 
 ### Feedback Response Sheet
