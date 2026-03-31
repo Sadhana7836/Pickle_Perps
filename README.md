@@ -171,7 +171,7 @@ bash deploy.sh
 
 ## User Wallet Addresses
 
-Verified on [Stellar Explorer](https://stellar.expert/explorer/testnet):
+List of verified users on [Stellar Explorer](https://stellar.expert/explorer/testnet):
 
 | # | User | Wallet Address |
 |---|------|---------------|
@@ -199,7 +199,7 @@ Verified on [Stellar Explorer](https://stellar.expert/explorer/testnet):
 
 ## User Feedback
 
-### Feedback Summary
+### Google Sheet Feedback Summary
 
 | ID | User | Bug/Issue | Status |
 |----|------|-----------|--------|
