@@ -50,7 +50,7 @@ All prices powered by Pyth Network - institutional-grade oracles with sub-second
 - **Follow Leaders** - Subscribe with your capital, positions copy proportionally
 - **On-chain Execution** - Smart contracts handle everything, no trust required
 
-## The Math
+## Formulas and Calculations used
 
 ### Bonding Curve
 ```
